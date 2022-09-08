@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>668386582250-o36p83aa8hncvb205mn6q10g0kenv5t8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.668386582250-o36p83aa8hncvb205mn6q10g0kenv5t8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBJhzlR4R59QxXOgAYok6qOsCkFe7srlDU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>668386582250</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>kimjunkyung.TouchFaster</string>
+	<key>PROJECT_ID</key>
+	<string>touchfaster-5d487</string>
+	<key>STORAGE_BUCKET</key>
+	<string>touchfaster-5d487.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:668386582250:ios:527b37e2e054b856288193</string>
+</dict>
+</plist>
