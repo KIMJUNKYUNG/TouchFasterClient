@@ -24,14 +24,22 @@ class ViewController: UIViewController {
     var circleButtons = [UIButton]()
     let exampleView = UIImageView()
     
+    var loadingView = UIView()
+    var loadingLabel = UILabel()
+    var loadingTimer : Timer?
+    var loadingCount = 3
+    
     let socketManager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
     var socket : SocketIOClient!
-
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gameZoneHeight = 763
+        let gameZoneWidth = 390
+
+        let circleHeight = 60
+        let circleWidth = 60
         
         for number in stride(from: 10, to: 0, by: -1){
             let circleButton = UIButton()
@@ -40,12 +48,6 @@ class ViewController: UIViewController {
             // Game Zone : 414, 818
             // view : 390, 844
             // Real Game Zone Size : 390, 763
-
-            let gameZoneHeight = 763
-            let gameZoneWidth = 390
-
-            let circleHeight = 60
-            let circleWidth = 60
 
             let randomY = Int.random(in: 0...(gameZoneHeight - circleHeight))
             let randomX = Int.random(in: 0...(gameZoneWidth - circleWidth))
@@ -65,6 +67,21 @@ class ViewController: UIViewController {
             self.gameZone.addSubview(circleButton)
         }
         
+        loadingView.frame = CGRect(x: 0, y: 0, width: gameZoneWidth, height: gameZoneHeight)
+        loadingView.backgroundColor = .lightGray
+        self.gameZone.addSubview(loadingView)
+        
+        loadingView.addSubview(loadingLabel)
+        loadingLabel.frame = CGRect(x: 100, y: 200, width: 175, height: 50)
+        
+        loadingLabel.font = .systemFont(ofSize: 25)
+        
+        loadingLabel.translatesAutoresizingMaskIntoConstraints = false
+        loadingLabel.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor).isActive = true
+        loadingLabel.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor).isActive = true
+        
+        loadingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdownTimer), userInfo: nil, repeats: true)
+        
 //        socket = self.socketManager.socket(forNamespace: "/test")
 //        socket.on("test"){ dataArray, ack in
 //            let data = dataArray[0] as! NSDictionary
@@ -76,6 +93,19 @@ class ViewController: UIViewController {
 //            self.exampleView.frame = CGRect(x: CGFloat(truncating: hasX) - (100 / 2), y: CGFloat(truncating: hasY) - (100 / 2), width: 100, height: 100)
 //            }
 //        }
+    }
+    
+    @objc func countdownTimer()
+    {
+        print("Fire!", loadingCount)
+        if loadingCount == 0{
+            self.loadingTimer?.invalidate()
+            self.loadingLabel.removeFromSuperview()
+            self.loadingView.removeFromSuperview()
+            self.loadingCount = 3
+        }
+        loadingLabel.text = String(loadingCount)
+        loadingCount -= 1
     }
 
     @objc func currentButtonTouched(_ sender : UIButton){
