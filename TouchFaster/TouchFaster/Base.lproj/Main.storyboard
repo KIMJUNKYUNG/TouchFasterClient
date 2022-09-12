@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75l-zP-EQ6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="54" width="414" height="808"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlk-8r-A4y">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlk-8r-A4y">
                                         <rect key="frame" x="20" y="20" width="374" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Connect to Server"/>
@@ -34,18 +34,30 @@
                                     <constraint firstItem="Dlk-8r-A4y" firstAttribute="leading" secondItem="75l-zP-EQ6" secondAttribute="leading" constant="20" id="kCJ-Xk-Kbm"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hv-Na-dZn" customClass="TimerLabel" customModule="TouchFaster" customModuleProvider="target">
+                                <rect key="frame" x="157" y="33" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="IKk-NL-x9F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="75l-zP-EQ6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KY7-VC-4ah"/>
+                            <constraint firstItem="3hv-Na-dZn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="33" id="Lpi-N7-B9W"/>
                             <constraint firstItem="75l-zP-EQ6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TpY-4q-vaE"/>
                             <constraint firstItem="75l-zP-EQ6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cKN-MR-Sor"/>
-                            <constraint firstItem="75l-zP-EQ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qyT-ZW-WKL"/>
+                            <constraint firstItem="75l-zP-EQ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="qyT-ZW-WKL"/>
+                            <constraint firstItem="3hv-Na-dZn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wCP-Qa-PWe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gameZone" destination="75l-zP-EQ6" id="dPC-lP-2of"/>
+                        <outlet property="timerLabel" destination="3hv-Na-dZn" id="oPy-QO-wlr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

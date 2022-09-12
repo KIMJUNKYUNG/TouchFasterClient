@@ -29,13 +29,15 @@ class ViewController: UIViewController {
     var loadingTimer : Timer?
     var loadingCount = 3
     
+    @IBOutlet weak var timerLabel: TimerLabel!
+    
     let socketManager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
     var socket : SocketIOClient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gameZoneHeight = 763
+        let gameZoneHeight = 753
         let gameZoneWidth = 390
 
         let circleHeight = 60
@@ -97,12 +99,12 @@ class ViewController: UIViewController {
     
     @objc func countdownTimer()
     {
-        print("Fire!", loadingCount)
         if loadingCount == 0{
             self.loadingTimer?.invalidate()
             self.loadingLabel.removeFromSuperview()
             self.loadingView.removeFromSuperview()
             self.loadingCount = 3
+            self.timerLabel.startTimer(self)
         }
         loadingLabel.text = String(loadingCount)
         loadingCount -= 1
@@ -111,6 +113,10 @@ class ViewController: UIViewController {
     @objc func currentButtonTouched(_ sender : UIButton){
         circleButtons.removeLast()
         sender.removeFromSuperview()
+        if circleButtons.isEmpty{
+            self.timerLabel.pauseTimer(self)
+            return
+        }
         
         circleButtons.last?.backgroundColor = .red
         circleButtons.last?.addTarget(self, action: #selector(currentButtonTouched(_:)), for: .touchDown)
