@@ -28,7 +28,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstItem="Dlk-8r-A4y" firstAttribute="top" secondItem="75l-zP-EQ6" secondAttribute="top" constant="20" id="EFO-Iv-Jln"/>
                                     <constraint firstAttribute="trailing" secondItem="Dlk-8r-A4y" secondAttribute="trailing" constant="20" id="IbU-MK-Raw"/>
@@ -57,9 +56,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

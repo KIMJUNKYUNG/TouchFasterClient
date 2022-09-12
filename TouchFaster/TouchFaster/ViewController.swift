@@ -21,31 +21,49 @@ extension Data {
 
 class ViewController: UIViewController {
     @IBOutlet weak var gameZone: UIView!
+    var circleButtons = [UIButton]()
     let exampleView = UIImageView()
     
     let socketManager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
     var socket : SocketIOClient!
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        self.view.backgroundColor = .blue
-        print("width : ", self.view.bounds.width)
-        print("height : ", self.view.bounds.height)
-        // Do any additional setup after loading the view.
-        
-        let circle = UIImage(systemName: "circle")
-        
-        exampleView.image = circle
-        
-        exampleView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-        let exampleUIView = UIView()
-        exampleUIView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        exampleUIView.backgroundColor = .gray
-        
-        self.gameZone.addSubview(exampleUIView)
+        for number in stride(from: 10, to: 0, by: -1){
+            let circleButton = UIButton()
+            circleButtons.append(circleButton)
+
+            // Game Zone : 414, 818
+            // view : 390, 844
+            // Real Game Zone Size : 390, 763
+
+            let gameZoneHeight = 763
+            let gameZoneWidth = 390
+
+            let circleHeight = 60
+            let circleWidth = 60
+
+            let randomY = Int.random(in: 0...(gameZoneHeight - circleHeight))
+            let randomX = Int.random(in: 0...(gameZoneWidth - circleWidth))
+
+            circleButton.frame = CGRect(x: randomX, y: randomY, width: circleWidth, height: circleHeight)
+            circleButton.backgroundColor = .gray
+            circleButton.layer.cornerRadius = circleButton.bounds.height / 2
+
+            circleButton.setTitle("\(number)", for: .normal)
+            circleButton.titleLabel?.font = .systemFont(ofSize: 25)
+
+            if number == 1 {
+                circleButton.backgroundColor = .red
+                circleButton.addTarget(self, action: #selector(currentButtonTouched(_:)), for: .touchDown)
+            }
+            
+            self.gameZone.addSubview(circleButton)
+        }
         
 //        socket = self.socketManager.socket(forNamespace: "/test")
 //        socket.on("test"){ dataArray, ack in
@@ -60,6 +78,13 @@ class ViewController: UIViewController {
 //        }
     }
 
+    @objc func currentButtonTouched(_ sender : UIButton){
+        circleButtons.removeLast()
+        sender.removeFromSuperview()
+        
+        circleButtons.last?.backgroundColor = .red
+        circleButtons.last?.addTarget(self, action: #selector(currentButtonTouched(_:)), for: .touchDown)
+    }
 
     @IBAction func touchedInQueue(_ sender: UIButton) {
         socket.connect()
@@ -75,3 +100,4 @@ class ViewController: UIViewController {
         }
     }
 }
+ 
