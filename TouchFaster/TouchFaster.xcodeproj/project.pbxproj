@@ -10,25 +10,31 @@
 		0B47BFC228BDDA3C00C196D5 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 0B47BFC128BDDA3C00C196D5 /* SocketIO */; };
 		0B963A7928AD0FC900BCD17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7828AD0FC900BCD17E /* AppDelegate.swift */; };
 		0B963A7B28AD0FC900BCD17E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */; };
-		0B963A7D28AD0FC900BCD17E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7C28AD0FC900BCD17E /* ViewController.swift */; };
+		0B963A7D28AD0FC900BCD17E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7C28AD0FC900BCD17E /* GameViewController.swift */; };
 		0B963A8028AD0FC900BCD17E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A7E28AD0FC900BCD17E /* Main.storyboard */; };
 		0B963A8228AD0FCB00BCD17E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A8128AD0FCB00BCD17E /* Assets.xcassets */; };
 		0B963A8528AD0FCB00BCD17E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A8328AD0FCB00BCD17E /* LaunchScreen.storyboard */; };
 		0B963A8D28AD118C00BCD17E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A8C28AD118C00BCD17E /* GoogleService-Info.plist */; };
 		0BC0393B28CF319E00AC3512 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0393A28CF319E00AC3512 /* TimerLabel.swift */; };
+		0BC0393D28CF481B00AC3512 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0393C28CF481B00AC3512 /* ViewController.swift */; };
+		0BC0393F28CF4F4F00AC3512 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0393E28CF4F4F00AC3512 /* RoomViewController.swift */; };
+		0BC0394128CF535500AC3512 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0394028CF535500AC3512 /* RoomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0B963A7528AD0FC900BCD17E /* TouchFaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchFaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B963A7828AD0FC900BCD17E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0B963A7C28AD0FC900BCD17E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0B963A7C28AD0FC900BCD17E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		0B963A7F28AD0FC900BCD17E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B963A8128AD0FCB00BCD17E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B963A8428AD0FCB00BCD17E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B963A8628AD0FCB00BCD17E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B963A8C28AD118C00BCD17E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0BC0393A28CF319E00AC3512 /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
+		0BC0393C28CF481B00AC3512 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0BC0393E28CF4F4F00AC3512 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		0BC0394028CF535500AC3512 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +71,10 @@
 				0B963A8C28AD118C00BCD17E /* GoogleService-Info.plist */,
 				0B963A7828AD0FC900BCD17E /* AppDelegate.swift */,
 				0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */,
-				0B963A7C28AD0FC900BCD17E /* ViewController.swift */,
+				0BC0393C28CF481B00AC3512 /* ViewController.swift */,
+				0BC0394028CF535500AC3512 /* RoomCell.swift */,
+				0BC0393E28CF4F4F00AC3512 /* RoomViewController.swift */,
+				0B963A7C28AD0FC900BCD17E /* GameViewController.swift */,
 				0BC0393A28CF319E00AC3512 /* TimerLabel.swift */,
 				0B963A7E28AD0FC900BCD17E /* Main.storyboard */,
 				0B963A8128AD0FCB00BCD17E /* Assets.xcassets */,
@@ -153,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC0393D28CF481B00AC3512 /* ViewController.swift in Sources */,
 				0BC0393B28CF319E00AC3512 /* TimerLabel.swift in Sources */,
-				0B963A7D28AD0FC900BCD17E /* ViewController.swift in Sources */,
+				0B963A7D28AD0FC900BCD17E /* GameViewController.swift in Sources */,
+				0BC0394128CF535500AC3512 /* RoomCell.swift in Sources */,
+				0BC0393F28CF4F4F00AC3512 /* RoomViewController.swift in Sources */,
 				0B963A7928AD0FC900BCD17E /* AppDelegate.swift in Sources */,
 				0B963A7B28AD0FC900BCD17E /* SceneDelegate.swift in Sources */,
 			);
