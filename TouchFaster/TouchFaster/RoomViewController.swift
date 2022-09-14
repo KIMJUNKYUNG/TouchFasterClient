@@ -22,19 +22,35 @@ class RoomViewController : UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         
-        socket = self.socketManager.socket(forNamespace: "/test")
-        socket.on("test"){ dataArray, ack in
-        }
-        self.makeBarButton()
-        self.tableView.reloadData()
-        
+        self.title = "Room List"
+//
+//        socket = self.socketManager.socket(forNamespace: "/test")
+//        socket.on("test"){ dataArray, ack in
+//        }
+//        socketManager.connect()
+        initSocket()
     }
     
-    func makeBarButton(){
+    func initSocket(){
+        self.socket = self.socketManager.socket(forNamespace: "/")
+        self.socket.connect()
         
+        self.socket.on("roomList") { dataArray, ack in
+            let data = dataArray[0] as! NSDictionary
+            
+            let roomNames = data["roomList"] as! NSArray
+            var strRoomNames = [String]()
+            for roomName in roomNames {
+                let strRoomName = roomName as! String
+                strRoomNames.append(strRoomName)
+            }
+            self.roomNames = strRoomNames
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func createRoomDidTouched(_ sender: UIBarButtonItem) {
+        self.socket.emit("test", "test World")
         let alert = UIAlertController(
           title: "Create Room",
           message: "input Room Name",
@@ -46,7 +62,7 @@ class RoomViewController : UIViewController{
             let text = textField.text
           else { return }
           
-          self.roomNames.append(text)
+          
           self.tableView.reloadData()
         }
 
@@ -59,10 +75,6 @@ class RoomViewController : UIViewController{
         alert.addAction(cancelAction)
 
         present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func touchedInQueue(_ sender: UIButton) {
-        socket.connect()
     }
 }
 
