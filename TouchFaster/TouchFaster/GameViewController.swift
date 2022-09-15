@@ -21,6 +21,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameZone: UIView!
     var circleButtons = [UIButton]()
     
+    var isRoomOwner = false
+    
     var loadingView = UIView()
     var loadingLabel = UILabel()
     var loadingTimer : Timer?
@@ -30,10 +32,13 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
     }
     
     @IBAction func gameStartButtonTouched(_ sender: Any) {
-        gameStart()
+        print(self.isRoomOwner)
+//        self.navigationController?.popViewController(animated: true)
+//        gameStart()
     }
     func gameStart(){
         let gameZoneHeight = 753

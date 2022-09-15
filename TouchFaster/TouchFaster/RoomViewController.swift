@@ -60,7 +60,9 @@ class RoomViewController : UIViewController{
           else { return }
           
             self.socket.emit("makeRoom", text)
-            self.performSegue(withIdentifier: "enterRoom", sender: nil)
+//            let gameVC : GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+//            self.present(gameVC, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "createRoom", sender: true)
         }
 
         let cancelAction = UIAlertAction(
@@ -72,6 +74,16 @@ class RoomViewController : UIViewController{
         alert.addAction(cancelAction)
 
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension RoomViewController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createRoom"{
+            if let gameVC = segue.destination as? GameViewController{
+                gameVC.isRoomOwner = true
+            }
+        }
     }
 }
 
