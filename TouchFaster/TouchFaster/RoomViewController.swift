@@ -36,9 +36,7 @@ class RoomViewController : UIViewController{
         self.socket.connect()
         
         self.socket.on("roomList") { dataArray, ack in
-            let data = dataArray[0] as! NSDictionary
-            
-            let roomNames = data["roomList"] as! NSArray
+            let roomNames = dataArray[0] as! NSArray
             var strRoomNames = [String]()
             for roomName in roomNames {
                 let strRoomName = roomName as! String
@@ -50,7 +48,6 @@ class RoomViewController : UIViewController{
     }
     
     @IBAction func createRoomDidTouched(_ sender: UIBarButtonItem) {
-        self.socket.emit("test", "test World")
         let alert = UIAlertController(
           title: "Create Room",
           message: "input Room Name",
@@ -62,7 +59,7 @@ class RoomViewController : UIViewController{
             let text = textField.text
           else { return }
           
-          
+          self.socket.emit("makeRoom", text)
           self.tableView.reloadData()
         }
 
@@ -86,7 +83,7 @@ extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as! RoomCell
         
-        cell.roomName.text = "Room Name : " + self.roomNames[indexPath.row]
+        cell.roomName.text = "Room \(indexPath.row) : " + self.roomNames[indexPath.row]
 
         return cell
     }
