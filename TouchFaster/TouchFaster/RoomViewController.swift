@@ -59,8 +59,8 @@ class RoomViewController : UIViewController{
             let text = textField.text
           else { return }
           
-          self.socket.emit("makeRoom", text)
-          self.tableView.reloadData()
+            self.socket.emit("makeRoom", text)
+            self.performSegue(withIdentifier: "enterRoom", sender: nil)
         }
 
         let cancelAction = UIAlertAction(

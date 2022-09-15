@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75l-zP-EQ6">
-                                <rect key="frame" x="0.0" y="54" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hv-Na-dZn" customClass="TimerLabel" customModule="TouchFaster" customModuleProvider="target">
                                 <rect key="frame" x="157" y="33" width="100" height="21"/>
@@ -40,6 +40,7 @@
                             <constraint firstItem="3hv-Na-dZn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wCP-Qa-PWe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="UXs-tM-aTS"/>
                     <connections>
                         <outlet property="gameZone" destination="75l-zP-EQ6" id="dPC-lP-2of"/>
                         <outlet property="timerLabel" destination="3hv-Na-dZn" id="oPy-QO-wlr"/>
@@ -169,6 +170,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="iZi-yi-Jsq" id="OYe-vD-7f6"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="enterRoom" id="lah-1y-oJV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crN-NN-3Z1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

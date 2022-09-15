@@ -30,7 +30,12 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    @IBAction func gameStartButtonTouched(_ sender: Any) {
+        gameStart()
+    }
+    func gameStart(){
         let gameZoneHeight = 753
         let gameZoneWidth = 390
 
