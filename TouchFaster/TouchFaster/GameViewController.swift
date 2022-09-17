@@ -32,13 +32,11 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
+//        self.navigationItem.hidesBackButton = true
     }
     
-    @IBAction func gameStartButtonTouched(_ sender: Any) {
-        print(self.isRoomOwner)
-//        self.navigationController?.popViewController(animated: true)
-//        gameStart()
+    @IBAction func readyButtonTouched(_ sender: Any) {
+        
     }
     func gameStart(){
         let gameZoneHeight = 753

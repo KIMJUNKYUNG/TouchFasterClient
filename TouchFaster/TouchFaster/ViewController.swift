@@ -12,4 +12,7 @@ class ViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    @IBAction func exitButtonTouched(_ sender: UIButton) {
+        exit(0)
+    }
 }

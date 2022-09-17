@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in RoomViewController.viewDidLoad():RoomViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "roomList[0]">
+            </PersistentString>
+            <PersistentString
+               value = "roomList[0] as! String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TouchPosition.init(snapshot:):TouchPosition.swift">
          <PersistentStrings>
             <PersistentString
@@ -20,21 +31,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in RoomViewController.viewDidLoad():RoomViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "roomList[0]">
-            </PersistentString>
-            <PersistentString
-               value = "roomList[0] as! String">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in ViewController.viewDidLoad():ViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "data[&quot;x&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in RoomViewController.initSocket():RoomViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "room[&quot;rooms&apos;]">
+            </PersistentString>
+            <PersistentString
+               value = "room[&quot;roomName&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -23,11 +23,6 @@ class RoomViewController : UIViewController{
         tableView.dataSource = self
         
         self.title = "Room List"
-//
-//        socket = self.socketManager.socket(forNamespace: "/test")
-//        socket.on("test"){ dataArray, ack in
-//        }
-//        socketManager.connect()
         initSocket()
     }
     
@@ -36,10 +31,13 @@ class RoomViewController : UIViewController{
         self.socket.connect()
         
         self.socket.on("roomList") { dataArray, ack in
-            let roomNames = dataArray[0] as! NSArray
+            
+            let rooms = (dataArray[0] as! NSDictionary)["rooms"] as! NSArray
+            
             var strRoomNames = [String]()
-            for roomName in roomNames {
-                let strRoomName = roomName as! String
+            for room in rooms {
+                let roomInfo = room as! NSDictionary
+                let strRoomName = roomInfo["roomName"] as! String
                 strRoomNames.append(strRoomName)
             }
             self.roomNames = strRoomNames
@@ -60,8 +58,6 @@ class RoomViewController : UIViewController{
           else { return }
           
             self.socket.emit("makeRoom", text)
-//            let gameVC : GameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-//            self.present(gameVC, animated: true, completion: nil)
             self.performSegue(withIdentifier: "createRoom", sender: true)
         }
 
