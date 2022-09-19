@@ -11,9 +11,6 @@ import SocketIO
 class RoomViewController : UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
-    let socketManager = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
-    var socket : SocketIOClient!
-    
     var roomNames = [String]()
     
     override func viewDidLoad() {
@@ -27,10 +24,10 @@ class RoomViewController : UIViewController{
     }
     
     func initSocket(){
-        self.socket = self.socketManager.socket(forNamespace: "/")
-        self.socket.connect()
         
-        self.socket.on("roomList") { dataArray, ack in
+        SocketIOManager.shared.connect()
+        
+        SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
             let rooms = (dataArray[0] as! NSDictionary)["rooms"] as! NSArray
             
@@ -54,10 +51,10 @@ class RoomViewController : UIViewController{
         let saveAction = UIAlertAction(title: "Create", style: .default) { _ in
           guard
             let textField = alert.textFields?.first,
-            let text = textField.text
+            let roomName = textField.text
           else { return }
           
-            self.socket.emit("makeRoom", text)
+            SocketIOManager.shared.socket.emit("makeRoom", roomName)
             self.performSegue(withIdentifier: "createRoom", sender: true)
         }
 
@@ -94,5 +91,9 @@ extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
         cell.roomName.text = "Room \(indexPath.row) : " + self.roomNames[indexPath.row]
 
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SocketIOManager.shared.socket.emit("joinRoom", indexPath.row)
+        self.performSegue(withIdentifier: "createRoom", sender: true)
     }
 }

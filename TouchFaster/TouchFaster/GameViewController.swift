@@ -29,10 +29,11 @@ class GameViewController: UIViewController {
     var loadingCount = 3
     
     @IBOutlet weak var timerLabel: TimerLabel!
+    @IBOutlet weak var noticeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.hidesBackButton = true
+        self.navigationItem.hidesBackButton = true
     }
     
     @IBAction func readyButtonTouched(_ sender: Any) {
@@ -111,16 +112,5 @@ class GameViewController: UIViewController {
         circleButtons.last?.backgroundColor = .red
         circleButtons.last?.addTarget(self, action: #selector(currentButtonTouched(_:)), for: .touchDown)
     }
-
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for touch in touches{
-//            let location = touch.location(in: self.view)
-//
-//            let roundX = (round(location.x * 100) / 100.0).description
-//            let roundY = (round(location.y * 100) / 100.0).description
-//
-////            socket.emit("test", ["x" : roundX, "y" : roundY])
-//        }
-//    }
 }
  
