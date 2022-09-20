@@ -11,7 +11,7 @@ import SocketIO
 class RoomViewController : UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
-    var roomNames = [String]()
+    var roomInfos = [[String : String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +31,14 @@ class RoomViewController : UIViewController{
             
             let rooms = (dataArray[0] as! NSDictionary)["rooms"] as! NSArray
             
-            var strRoomNames = [String]()
+            var newRoomInfos = [[String : String]]()
             for room in rooms {
                 let roomInfo = room as! NSDictionary
+                let strRoomNumber = roomInfo["roomNumber"] as! String
                 let strRoomName = roomInfo["roomName"] as! String
-                strRoomNames.append(strRoomName)
+                newRoomInfos.append([strRoomNumber : strRoomName])
             }
-            self.roomNames = strRoomNames
+            self.roomInfos = newRoomInfos
             self.tableView.reloadData()
         }
     }
@@ -82,13 +83,14 @@ extension RoomViewController{
 
 extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roomNames.count
+        return roomInfos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as! RoomCell
         
-        cell.roomName.text = "Room \(indexPath.row) : " + self.roomNames[indexPath.row]
+        cell.roomNumber.text = self.roomInfos[indexPath.row].keys.first 
+        cell.roomName.text = self.roomInfos[indexPath.row].values.first
 
         return cell
     }

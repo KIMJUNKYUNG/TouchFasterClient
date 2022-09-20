@@ -29,16 +29,32 @@ class GameViewController: UIViewController {
     var loadingCount = 3
     
     @IBOutlet weak var timerLabel: TimerLabel!
+    
     @IBOutlet weak var noticeLabel: UILabel!
+    
+    @IBOutlet weak var btnReady: UIButton!
+    var isReady = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        SocketIOManager.shared.socket.on("playerJoined") { _,_  in
+            self.noticeLabel.text = "Online Game is Ready!"
+            self.btnReady.isEnabled = true
+        }
     }
     
     @IBAction func readyButtonTouched(_ sender: Any) {
-        
+        if !isReady{
+            isReady = true
+            self.btnReady.backgroundColor = .yellow
+        }else{
+            isReady = false
+            self.btnReady.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+        }
+        SocketIOManager.shared.socket.emit("ready", isReady, false, 35)
     }
+    
     func gameStart(){
         let gameZoneHeight = 753
         let gameZoneWidth = 390
