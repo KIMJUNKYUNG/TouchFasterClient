@@ -31,6 +31,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #1 in RoomViewController.initSocket():RoomViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rooms">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in ViewController.viewDidLoad():ViewController.swift">
          <PersistentStrings>
             <PersistentString

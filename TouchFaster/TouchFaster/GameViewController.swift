@@ -22,6 +22,7 @@ class GameViewController: UIViewController {
     var circleButtons = [UIButton]()
     
     var isRoomOwner = false
+    var roomNumber : Int?
     
     var loadingView = UIView()
     var loadingLabel = UILabel()
@@ -38,8 +39,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        SocketIOManager.shared.socket.on("playerJoined") { _,_  in
-            self.noticeLabel.text = "Online Game is Ready!"
+        SocketIOManager.shared.socket.on("roomReady") { _,_  in
+            self.noticeLabel.text = "Room Is Online!"
             self.btnReady.isEnabled = true
         }
     }
@@ -52,7 +53,7 @@ class GameViewController: UIViewController {
             isReady = false
             self.btnReady.backgroundColor = UIColor.black.withAlphaComponent(0.0)
         }
-        SocketIOManager.shared.socket.emit("ready", isReady, false, 35)
+        SocketIOManager.shared.socket.emit("ready", isRoomOwner, isReady)
     }
     
     func gameStart(){

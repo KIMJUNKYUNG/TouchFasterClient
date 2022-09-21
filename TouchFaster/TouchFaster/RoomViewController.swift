@@ -11,7 +11,7 @@ import SocketIO
 class RoomViewController : UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
-    var roomInfos = [[String : String]]()
+    var roomNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +29,15 @@ class RoomViewController : UIViewController{
         
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
-            let rooms = (dataArray[0] as! NSDictionary)["rooms"] as! NSArray
+            let rooms = dataArray[0] as! NSArray
             
-            var newRoomInfos = [[String : String]]()
+            var newRoomInfos = [String]()
             for room in rooms {
                 let roomInfo = room as! NSDictionary
-                let strRoomNumber = roomInfo["roomNumber"] as! String
                 let strRoomName = roomInfo["roomName"] as! String
-                newRoomInfos.append([strRoomNumber : strRoomName])
+                newRoomInfos.append(strRoomName)
             }
-            self.roomInfos = newRoomInfos
+            self.roomNames = newRoomInfos
             self.tableView.reloadData()
         }
     }
@@ -55,7 +54,7 @@ class RoomViewController : UIViewController{
             let roomName = textField.text
           else { return }
           
-            SocketIOManager.shared.socket.emit("makeRoom", roomName)
+            SocketIOManager.shared.socket.emit("createRoom", roomName)
             self.performSegue(withIdentifier: "createRoom", sender: true)
         }
 
@@ -83,14 +82,14 @@ extension RoomViewController{
 
 extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roomInfos.count
+        return roomNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as! RoomCell
         
-        cell.roomNumber.text = self.roomInfos[indexPath.row].keys.first 
-        cell.roomName.text = self.roomInfos[indexPath.row].values.first
+        cell.roomNumber.text = String(indexPath.row + 1)
+        cell.roomName.text = self.roomNames[indexPath.row]
 
         return cell
     }
