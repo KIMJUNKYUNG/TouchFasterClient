@@ -36,12 +36,23 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnReady: UIButton!
     var isReady = false
     
+    @IBOutlet weak var btnStart: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         SocketIOManager.shared.socket.on("roomReady") { _,_  in
             self.noticeLabel.text = "Room Is Online!"
             self.btnReady.isEnabled = true
+        }
+        SocketIOManager.shared.socket.on("gameReady") { dataArray, ack in
+            let gameReady = dataArray[0] as! Bool
+            if self.isRoomOwner && gameReady{
+                self.btnStart.isHidden = false
+            }else{
+                self.btnStart.isHidden = true
+            }
         }
     }
     

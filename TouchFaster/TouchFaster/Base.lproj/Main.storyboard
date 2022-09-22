@@ -39,11 +39,27 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcI-us-imE">
+                                        <rect key="frame" x="157" y="427" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Gs5-hR-GiR"/>
+                                            <constraint firstAttribute="width" constant="100" id="qiG-cY-BHD"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Start">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="readyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F11-wC-4V5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jq6-gv-GH6" firstAttribute="centerY" secondItem="75l-zP-EQ6" secondAttribute="centerY" id="9n5-JF-h6f"/>
                                     <constraint firstAttribute="trailing" secondItem="hr9-Y1-yr8" secondAttribute="trailing" constant="20" id="Br4-fN-Nne"/>
+                                    <constraint firstItem="OcI-us-imE" firstAttribute="centerX" secondItem="75l-zP-EQ6" secondAttribute="centerX" id="OQX-tJ-wXr"/>
                                     <constraint firstItem="jq6-gv-GH6" firstAttribute="centerX" secondItem="75l-zP-EQ6" secondAttribute="centerX" id="cfJ-iN-4BA"/>
+                                    <constraint firstItem="OcI-us-imE" firstAttribute="top" secondItem="jq6-gv-GH6" secondAttribute="bottom" constant="30" id="fBI-hC-ts5"/>
                                     <constraint firstItem="hr9-Y1-yr8" firstAttribute="top" secondItem="75l-zP-EQ6" secondAttribute="top" id="hPE-gE-ey5"/>
                                     <constraint firstItem="hr9-Y1-yr8" firstAttribute="leading" secondItem="75l-zP-EQ6" secondAttribute="leading" constant="20" id="npu-1P-QKc"/>
                                 </constraints>
@@ -72,6 +88,7 @@
                     <navigationItem key="navigationItem" id="UXs-tM-aTS"/>
                     <connections>
                         <outlet property="btnReady" destination="jq6-gv-GH6" id="9LE-p3-vZI"/>
+                        <outlet property="btnStart" destination="OcI-us-imE" id="RiS-OO-af7"/>
                         <outlet property="gameZone" destination="75l-zP-EQ6" id="dPC-lP-2of"/>
                         <outlet property="noticeLabel" destination="hr9-Y1-yr8" id="WpR-aI-ZbO"/>
                         <outlet property="timerLabel" destination="3hv-Na-dZn" id="oPy-QO-wlr"/>
@@ -219,6 +236,7 @@
                     <connections>
                         <outlet property="tableView" destination="iZi-yi-Jsq" id="OYe-vD-7f6"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="createRoom" id="lah-1y-oJV"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="joinRoom" id="mxI-ck-SIa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crN-NN-3Z1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -244,6 +262,9 @@
             <point key="canvasLocation" x="-778.26086956521749" y="49.553571428571423"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mxI-ck-SIa"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

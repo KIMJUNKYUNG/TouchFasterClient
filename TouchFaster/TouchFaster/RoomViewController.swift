@@ -95,6 +95,6 @@ extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SocketIOManager.shared.socket.emit("joinRoom", indexPath.row)
-        self.performSegue(withIdentifier: "createRoom", sender: true)
+        self.performSegue(withIdentifier: "joinRoom", sender: true)
     }
 }
