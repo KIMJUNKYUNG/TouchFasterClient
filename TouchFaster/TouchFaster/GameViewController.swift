@@ -42,6 +42,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        socketOn()
+    }
+    func socketOn(){
         SocketIOManager.shared.socket.on("roomReady") { _,_  in
             self.noticeLabel.text = "Room Is Online!"
             self.btnReady.isEnabled = true
@@ -53,6 +56,19 @@ class GameViewController: UIViewController {
             }else{
                 self.btnStart.isHidden = true
             }
+        }
+        SocketIOManager.shared.socket.on("gameStart") { _,_ in
+            self.gameStart()
+        }
+        SocketIOManager.shared.socket.on("win"){ _,_ in
+            self.noticeLabel.isHidden = false
+            self.noticeLabel.text = "You Win!"
+        }
+        SocketIOManager.shared.socket.on("lose"){ _,_ in
+            self.noticeLabel.isHidden = false
+            self.noticeLabel.text = "You Lose!"
+            
+            self.timerLabel.pauseTimer(self)
         }
     }
     
@@ -66,8 +82,15 @@ class GameViewController: UIViewController {
         }
         SocketIOManager.shared.socket.emit("ready", isRoomOwner, isReady)
     }
+    @IBAction func startButtonTouched(_ sender: Any) {
+        SocketIOManager.shared.socket.emit("gameStart")
+    }
     
     func gameStart(){
+        self.btnReady.isHidden = true
+        self.btnStart.isHidden = true
+        self.noticeLabel.isHidden = true
+        
         let gameZoneHeight = 753
         let gameZoneWidth = 390
 
@@ -134,6 +157,7 @@ class GameViewController: UIViewController {
         sender.removeFromSuperview()
         if circleButtons.isEmpty{
             self.timerLabel.pauseTimer(self)
+            SocketIOManager.shared.socket.emit("gameDone")
             return
         }
         
