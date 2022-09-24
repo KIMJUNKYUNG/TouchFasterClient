@@ -11,7 +11,7 @@ class RoomCell: UITableViewCell {
     
     @IBOutlet weak var roomNumber: UILabel!
     @IBOutlet weak var roomName: UILabel!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

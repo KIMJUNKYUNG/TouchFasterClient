@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     var circleButtons = [UIButton]()
     
     var isRoomOwner = false
-    var roomNumber : Int?
+    var roomName : String?
     
     var loadingView = UIView()
     var loadingLabel = UILabel()
@@ -52,9 +52,9 @@ class GameViewController: UIViewController {
         SocketIOManager.shared.socket.on("gameReady") { dataArray, ack in
             let gameReady = dataArray[0] as! Bool
             if self.isRoomOwner && gameReady{
-                self.btnStart.isHidden = false
+                self.btnStart.isEnabled = false
             }else{
-                self.btnStart.isHidden = true
+                self.btnStart.isEnabled = true
             }
         }
         SocketIOManager.shared.socket.on("gameStart") { _,_ in
@@ -84,6 +84,10 @@ class GameViewController: UIViewController {
     }
     @IBAction func startButtonTouched(_ sender: Any) {
         SocketIOManager.shared.socket.emit("gameStart")
+    }
+    @IBAction func quitButtonTouched(_ sender: Any) {
+        SocketIOManager.shared.socket.emit("quitRoom", isRoomOwner, roomName ?? "")
+        self.navigationController?.popViewController(animated: true)
     }
     
     func gameStart(){
@@ -158,7 +162,7 @@ class GameViewController: UIViewController {
         if circleButtons.isEmpty{
             self.timerLabel.pauseTimer(self)
             SocketIOManager.shared.socket.emit("gameDone")
-            return
+            return 
         }
         
         circleButtons.last?.backgroundColor = .red

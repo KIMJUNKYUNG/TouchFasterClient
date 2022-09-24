@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #1 in RoomViewController.initSocket():RoomViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rooms">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in RoomViewController.viewDidLoad():RoomViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -31,14 +39,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in RoomViewController.initSocket():RoomViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "rooms">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in ViewController.viewDidLoad():ViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -54,6 +54,14 @@
             </PersistentString>
             <PersistentString
                value = "room[&quot;roomName&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RoomViewController.tableView(_:didSelectRowAt:):RoomViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.joinRoomName">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

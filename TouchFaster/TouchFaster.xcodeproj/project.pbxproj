@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B1A164528D817660024639B /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1A164428D817660024639B /* SocketIOManager.swift */; };
+		0B1A164728DF45900024639B /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1A164628DF45900024639B /* utils.swift */; };
 		0B47BFC228BDDA3C00C196D5 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 0B47BFC128BDDA3C00C196D5 /* SocketIO */; };
 		0B963A7928AD0FC900BCD17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7828AD0FC900BCD17E /* AppDelegate.swift */; };
 		0B963A7B28AD0FC900BCD17E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0B1A164428D817660024639B /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		0B1A164628DF45900024639B /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		0B963A7528AD0FC900BCD17E /* TouchFaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchFaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B963A7828AD0FC900BCD17E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				0B963A7C28AD0FC900BCD17E /* GameViewController.swift */,
 				0B1A164428D817660024639B /* SocketIOManager.swift */,
 				0BC0393A28CF319E00AC3512 /* TimerLabel.swift */,
+				0B1A164628DF45900024639B /* utils.swift */,
 				0B963A7E28AD0FC900BCD17E /* Main.storyboard */,
 				0B963A8128AD0FCB00BCD17E /* Assets.xcassets */,
 				0B963A8328AD0FCB00BCD17E /* LaunchScreen.storyboard */,
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B1A164728DF45900024639B /* utils.swift in Sources */,
 				0BC0393D28CF481B00AC3512 /* ViewController.swift in Sources */,
 				0BC0393B28CF319E00AC3512 /* TimerLabel.swift in Sources */,
 				0B963A7D28AD0FC900BCD17E /* GameViewController.swift in Sources */,

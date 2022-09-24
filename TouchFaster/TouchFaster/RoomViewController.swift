@@ -11,7 +11,8 @@ import SocketIO
 class RoomViewController : UIViewController{
     @IBOutlet weak var tableView: UITableView!
     
-    var roomNames = [String]()
+    var roomInfos : NSArray?
+    var joinRoomName : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +30,7 @@ class RoomViewController : UIViewController{
         
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
-            let rooms = dataArray[0] as! NSArray
-            
-            var newRoomInfos = [String]()
-            for room in rooms {
-                let roomInfo = room as! NSDictionary
-                let strRoomName = roomInfo["roomName"] as! String
-                newRoomInfos.append(strRoomName)
-            }
-            self.roomNames = newRoomInfos
+            self.roomInfos = dataArray[0] as! NSArray
             self.tableView.reloadData()
         }
     }
@@ -55,6 +48,7 @@ class RoomViewController : UIViewController{
           else { return }
           
             SocketIOManager.shared.socket.emit("createRoom", roomName)
+            self.joinRoomName = roomName
             self.performSegue(withIdentifier: "createRoom", sender: true)
         }
 
@@ -72,6 +66,10 @@ class RoomViewController : UIViewController{
 
 extension RoomViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let gameVC = segue.destination as? GameViewController  else {
+            return
+        }
+        gameVC.roomName = self.joinRoomName
         if segue.identifier == "createRoom"{
             if let gameVC = segue.destination as? GameViewController{
                 gameVC.isRoomOwner = true
@@ -82,19 +80,29 @@ extension RoomViewController{
 
 extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roomNames.count
+        return roomInfos?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as! RoomCell
         
         cell.roomNumber.text = String(indexPath.row + 1)
-        cell.roomName.text = self.roomNames[indexPath.row]
+        if let roomInfo = self.roomInfos?.getNSDict(indexPath.row) {
+                cell.roomName.text = roomInfo["roomName"] as? String ?? ""
+                
+                let isEnabled = !(roomInfo["isFull"] as? Bool ?? false)
+                cell.isUserInteractionEnabled = isEnabled
+                cell.roomName.isEnabled = isEnabled
+                cell.roomNumber.isEnabled = isEnabled
+            }
 
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SocketIOManager.shared.socket.emit("joinRoom", indexPath.row)
+        if let roomInfo = self.roomInfos?.getNSDict(indexPath.row){
+                self.joinRoomName = roomInfo["roomName"] as? String ?? ""
+        }
         self.performSegue(withIdentifier: "joinRoom", sender: true)
     }
 }

@@ -39,7 +39,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcI-us-imE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcI-us-imE">
                                         <rect key="frame" x="157" y="427" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Gs5-hR-GiR"/>
@@ -50,18 +50,33 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="readyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F11-wC-4V5"/>
                                             <action selector="startButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rTL-wz-krG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrq-nZ-zos">
+                                        <rect key="frame" x="157" y="487" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="7vL-Z2-PS9"/>
+                                            <constraint firstAttribute="height" constant="30" id="Nwg-I0-v1v"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Quit">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="quitButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OYn-NF-d6G"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jq6-gv-GH6" firstAttribute="centerY" secondItem="75l-zP-EQ6" secondAttribute="centerY" id="9n5-JF-h6f"/>
                                     <constraint firstAttribute="trailing" secondItem="hr9-Y1-yr8" secondAttribute="trailing" constant="20" id="Br4-fN-Nne"/>
+                                    <constraint firstItem="xrq-nZ-zos" firstAttribute="centerX" secondItem="75l-zP-EQ6" secondAttribute="centerX" id="NmY-B4-vV9"/>
                                     <constraint firstItem="OcI-us-imE" firstAttribute="centerX" secondItem="75l-zP-EQ6" secondAttribute="centerX" id="OQX-tJ-wXr"/>
                                     <constraint firstItem="jq6-gv-GH6" firstAttribute="centerX" secondItem="75l-zP-EQ6" secondAttribute="centerX" id="cfJ-iN-4BA"/>
                                     <constraint firstItem="OcI-us-imE" firstAttribute="top" secondItem="jq6-gv-GH6" secondAttribute="bottom" constant="30" id="fBI-hC-ts5"/>
                                     <constraint firstItem="hr9-Y1-yr8" firstAttribute="top" secondItem="75l-zP-EQ6" secondAttribute="top" id="hPE-gE-ey5"/>
+                                    <constraint firstItem="xrq-nZ-zos" firstAttribute="top" secondItem="OcI-us-imE" secondAttribute="bottom" constant="30" id="m1b-D4-gM1"/>
                                     <constraint firstItem="hr9-Y1-yr8" firstAttribute="leading" secondItem="75l-zP-EQ6" secondAttribute="leading" constant="20" id="npu-1P-QKc"/>
                                 </constraints>
                             </view>
