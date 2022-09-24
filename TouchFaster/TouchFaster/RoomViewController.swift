@@ -20,19 +20,41 @@ class RoomViewController : UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.title = "Room List"
+        self.title = "Rooms"
+
+        initBarButtons()
         initSocket()
     }
-    
+}
+
+extension RoomViewController{   // Socket
     func initSocket(){
         
         SocketIOManager.shared.connect()
         
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
-            self.roomInfos = dataArray[0] as! NSArray
+            self.roomInfos = dataArray[0] as? NSArray
             self.tableView.reloadData()
         }
+    }
+}
+
+extension RoomViewController{   // BarButton
+    func initBarButtons(){
+        let createRoomIcon : UIButton = UIButton.init(type: .custom)
+        createRoomIcon.setImage(UIImage(systemName: "plus"), for: .normal)
+        createRoomIcon.addTarget(self, action: #selector(createRoomDidTouched), for: .touchUpInside)
+        createRoomIcon.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let btnCreateRoom = UIBarButtonItem(customView: createRoomIcon)
+        
+        let loginUsersIcon : UIButton = UIButton.init(type: .custom)
+        loginUsersIcon.setImage(UIImage(systemName: "person.3.fill"), for: .normal)
+        loginUsersIcon.addTarget(self, action: #selector(createRoomDidTouched), for: .touchUpInside)
+        loginUsersIcon.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let btnLoginUsers = UIBarButtonItem(customView: loginUsersIcon)
+        
+        self.navigationItem.setRightBarButtonItems([btnCreateRoom, btnLoginUsers], animated: false)
     }
     
     @IBAction func createRoomDidTouched(_ sender: UIBarButtonItem) {

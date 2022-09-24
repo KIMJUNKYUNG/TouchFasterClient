@@ -242,13 +242,7 @@
                             <constraint firstItem="fzw-vt-FFY" firstAttribute="trailing" secondItem="iZi-yi-Jsq" secondAttribute="trailing" id="yjj-qK-Snc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KQs-tY-bmy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ug4-hz-Hwr">
-                            <connections>
-                                <action selector="createRoomDidTouched:" destination="i8i-RY-MRM" id="ZZb-No-heY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="KQs-tY-bmy"/>
                     <connections>
                         <outlet property="tableView" destination="iZi-yi-Jsq" id="OYe-vD-7f6"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="createRoom" id="lah-1y-oJV"/>
