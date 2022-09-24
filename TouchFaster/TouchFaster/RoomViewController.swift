@@ -9,7 +9,7 @@ import UIKit
 import SocketIO
 
 class RoomViewController : UIViewController{
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var roomTableView: UITableView!
     
     var roomInfos : NSArray?
     var joinRoomName : String?
@@ -17,11 +17,9 @@ class RoomViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         self.title = "Rooms"
-
+        
+        initTableView()
         initBarButtons()
         initSocket()
     }
@@ -35,7 +33,7 @@ extension RoomViewController{   // Socket
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
             self.roomInfos = dataArray[0] as? NSArray
-            self.tableView.reloadData()
+            self.roomTableView.reloadData()
         }
     }
 }
@@ -50,14 +48,18 @@ extension RoomViewController{   // BarButton
         
         let loginUsersIcon : UIButton = UIButton.init(type: .custom)
         loginUsersIcon.setImage(UIImage(systemName: "person.3.fill"), for: .normal)
-        loginUsersIcon.addTarget(self, action: #selector(createRoomDidTouched), for: .touchUpInside)
+        loginUsersIcon.addTarget(self, action: #selector(logOnUsers), for: .touchUpInside)
         loginUsersIcon.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let btnLoginUsers = UIBarButtonItem(customView: loginUsersIcon)
         
         self.navigationItem.setRightBarButtonItems([btnCreateRoom, btnLoginUsers], animated: false)
     }
     
-    @IBAction func createRoomDidTouched(_ sender: UIBarButtonItem) {
+    @objc func logOnUsers(_ sender: UIBarButtonItem){
+        self.performSegue(withIdentifier: "logOnUsers", sender: true)
+    }
+    
+    @objc func createRoomDidTouched(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(
           title: "Create Room",
           message: "input Room Name",
@@ -101,6 +103,11 @@ extension RoomViewController{
 }
 
 extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
+    func initTableView(){
+        roomTableView.delegate = self
+        roomTableView.dataSource = self
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roomInfos?.count ?? 0
     }
