@@ -58,9 +58,9 @@
 		0B1A165228E133630024639B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0BC0393C28CF481B00AC3512 /* ViewController.swift */,
 				0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */,
 				0B963A7828AD0FC900BCD17E /* AppDelegate.swift */,
+				0BC0393C28CF481B00AC3512 /* ViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";

@@ -13,6 +13,7 @@ class RoomViewController : UIViewController{
     
     var roomInfos : NSArray?
     var joinRoomName : String?
+    var nickName : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,9 @@ extension RoomViewController{   // Socket
     func initSocket(){
         
         SocketIOManager.shared.connect()
+        SocketIOManager.shared.socket.on("connection"){ _,_ in
+            SocketIOManager.shared.socket.emit("nickName", self.nickName ?? "")
+        }
         
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             

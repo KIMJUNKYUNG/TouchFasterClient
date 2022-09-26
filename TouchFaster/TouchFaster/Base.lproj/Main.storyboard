@@ -13,14 +13,14 @@
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="BYZ-38-t0r" customClass="GameViewController" customModule="TouchFaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75l-zP-EQ6">
-                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="54" width="414" height="788"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jq6-gv-GH6">
-                                        <rect key="frame" x="157" y="367" width="100" height="30"/>
+                                        <rect key="frame" x="157" y="379" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="AuQ-Ew-T9p"/>
                                             <constraint firstAttribute="height" constant="30" id="kLH-I6-mSf"/>
@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcI-us-imE">
-                                        <rect key="frame" x="157" y="427" width="100" height="30"/>
+                                        <rect key="frame" x="157" y="439" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Gs5-hR-GiR"/>
                                             <constraint firstAttribute="width" constant="100" id="qiG-cY-BHD"/>
@@ -54,7 +54,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrq-nZ-zos">
-                                        <rect key="frame" x="157" y="487" width="100" height="30"/>
+                                        <rect key="frame" x="157" y="499" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="7vL-Z2-PS9"/>
                                             <constraint firstAttribute="height" constant="30" id="Nwg-I0-v1v"/>
@@ -123,21 +123,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VA-8b-e8f">
-                                <rect key="frame" x="132" y="488" width="150" height="50"/>
+                                <rect key="frame" x="132" y="717" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="XlH-S5-uyL"/>
                                     <constraint firstAttribute="height" constant="50" id="xLl-Sh-KNw"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start">
+                                <buttonConfiguration key="configuration" style="plain" title="Multi Play">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="i8i-RY-MRM" kind="show" id="RLZ-QW-AdD"/>
+                                    <action selector="multiPlayButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="rfi-nm-FOs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZk-We-dCV">
-                                <rect key="frame" x="132" y="588" width="150" height="50"/>
+                                <rect key="frame" x="132" y="787" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="20J-ly-s0m"/>
                                     <constraint firstAttribute="width" constant="150" id="RIW-7U-3Bc"/>
@@ -151,7 +151,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch Faster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9l-vp-K3o">
-                                <rect key="frame" x="57" y="188" width="300" height="50"/>
+                                <rect key="frame" x="57" y="123" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Urx-xk-XlK"/>
                                     <constraint firstAttribute="height" constant="50" id="hJr-YW-sTo"/>
@@ -160,16 +160,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-2f-wOu">
+                                <rect key="frame" x="132" y="647" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="64k-CM-SN9"/>
+                                    <constraint firstAttribute="height" constant="50" id="v3a-jg-5Op"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Single Play">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="pYz-ma-ikq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nY2-WQ-VRA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="d9l-vp-K3o" firstAttribute="top" secondItem="nY2-WQ-VRA" secondAttribute="top" constant="100" id="2Qz-2J-ehd"/>
                             <constraint firstItem="yZk-We-dCV" firstAttribute="centerX" secondItem="T1o-gK-eTh" secondAttribute="centerX" id="3Lu-lx-lLe"/>
+                            <constraint firstItem="Nwg-2f-wOu" firstAttribute="centerY" secondItem="T1o-gK-eTh" secondAttribute="centerY" multiplier="1.5" id="HqD-xu-bYs"/>
                             <constraint firstItem="d9l-vp-K3o" firstAttribute="centerX" secondItem="T1o-gK-eTh" secondAttribute="centerX" id="JTo-h2-asN"/>
-                            <constraint firstItem="yZk-We-dCV" firstAttribute="top" secondItem="7VA-8b-e8f" secondAttribute="bottom" constant="50" id="O2a-3a-sB8"/>
-                            <constraint firstItem="7VA-8b-e8f" firstAttribute="top" secondItem="d9l-vp-K3o" secondAttribute="bottom" constant="250" id="dJY-lz-6NR"/>
+                            <constraint firstItem="yZk-We-dCV" firstAttribute="top" secondItem="7VA-8b-e8f" secondAttribute="bottom" constant="20" id="O2a-3a-sB8"/>
+                            <constraint firstItem="7VA-8b-e8f" firstAttribute="top" secondItem="Nwg-2f-wOu" secondAttribute="bottom" constant="20" id="Ptc-Ty-Scg"/>
+                            <constraint firstItem="Nwg-2f-wOu" firstAttribute="centerX" secondItem="T1o-gK-eTh" secondAttribute="centerX" id="S1U-WJ-EKn"/>
                             <constraint firstItem="7VA-8b-e8f" firstAttribute="centerX" secondItem="T1o-gK-eTh" secondAttribute="centerX" id="mwt-o5-egW"/>
+                            <constraint firstItem="d9l-vp-K3o" firstAttribute="centerY" secondItem="T1o-gK-eTh" secondAttribute="centerY" multiplier="0.33" id="xoV-5o-vDj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ec9-wD-xOU"/>
@@ -181,13 +197,13 @@
         <!--Room View Controller-->
         <scene sceneID="wdM-m1-K3s">
             <objects>
-                <viewController id="i8i-RY-MRM" customClass="RoomViewController" customModule="TouchFaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Rooms" id="i8i-RY-MRM" customClass="RoomViewController" customModule="TouchFaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iRG-Yu-1sw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-yi-Jsq">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" rowHeight="100" id="er3-np-cYA" customClass="RoomCell" customModule="TouchFaster" customModuleProvider="target">
@@ -259,11 +275,11 @@
             <objects>
                 <viewController id="qNJ-C6-Q6d" customClass="UserViewController" customModule="TouchFaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ixz-2l-6cn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FvX-GP-Y3L">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="73" id="ZcV-5b-7yh" customClass="UserCell" customModule="TouchFaster" customModuleProvider="target">
