@@ -18,7 +18,6 @@
 		0B963A8028AD0FC900BCD17E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A7E28AD0FC900BCD17E /* Main.storyboard */; };
 		0B963A8228AD0FCB00BCD17E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A8128AD0FCB00BCD17E /* Assets.xcassets */; };
 		0B963A8528AD0FCB00BCD17E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A8328AD0FCB00BCD17E /* LaunchScreen.storyboard */; };
-		0B963A8D28AD118C00BCD17E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B963A8C28AD118C00BCD17E /* GoogleService-Info.plist */; };
 		0BC0393B28CF319E00AC3512 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0393A28CF319E00AC3512 /* TimerLabel.swift */; };
 		0BC0393D28CF481B00AC3512 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0393C28CF481B00AC3512 /* ViewController.swift */; };
 		0BC0393F28CF4F4F00AC3512 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC0393E28CF4F4F00AC3512 /* RoomViewController.swift */; };
@@ -38,7 +37,6 @@
 		0B963A8128AD0FCB00BCD17E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B963A8428AD0FCB00BCD17E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B963A8628AD0FCB00BCD17E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B963A8C28AD118C00BCD17E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0BC0393A28CF319E00AC3512 /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		0BC0393C28CF481B00AC3512 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0BC0393E28CF4F4F00AC3512 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +55,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B1A165228E133630024639B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0BC0393C28CF481B00AC3512 /* ViewController.swift */,
+				0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */,
+				0B963A7828AD0FC900BCD17E /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0B1A165328E133780024639B /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				0BC0394028CF535500AC3512 /* RoomCell.swift */,
+				0BC0393E28CF4F4F00AC3512 /* RoomViewController.swift */,
+			);
+			path = Rooms;
+			sourceTree = "<group>";
+		};
+		0B1A165428E1338B0024639B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0BC0393A28CF319E00AC3512 /* TimerLabel.swift */,
+				0B1A164428D817660024639B /* SocketIOManager.swift */,
+				0B1A164628DF45900024639B /* utils.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0B1A165528E133A60024639B /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				0B1A165028DF68830024639B /* UserCell.swift */,
+				0B1A164C28DF5B640024639B /* UserViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		0B1A165628E133D20024639B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				0B963A7C28AD0FC900BCD17E /* GameViewController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		0B963A6C28AD0FC900BCD17E = {
 			isa = PBXGroup;
 			children = (
@@ -76,20 +120,13 @@
 		0B963A7728AD0FC900BCD17E /* TouchFaster */ = {
 			isa = PBXGroup;
 			children = (
-				0B963A8C28AD118C00BCD17E /* GoogleService-Info.plist */,
-				0B963A7828AD0FC900BCD17E /* AppDelegate.swift */,
-				0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */,
-				0BC0393C28CF481B00AC3512 /* ViewController.swift */,
-				0BC0394028CF535500AC3512 /* RoomCell.swift */,
-				0B963A7C28AD0FC900BCD17E /* GameViewController.swift */,
-				0B1A164428D817660024639B /* SocketIOManager.swift */,
-				0BC0393A28CF319E00AC3512 /* TimerLabel.swift */,
-				0B1A164C28DF5B640024639B /* UserViewController.swift */,
-				0BC0393E28CF4F4F00AC3512 /* RoomViewController.swift */,
-				0B1A165028DF68830024639B /* UserCell.swift */,
-				0B1A164628DF45900024639B /* utils.swift */,
-				0B963A7E28AD0FC900BCD17E /* Main.storyboard */,
+				0B1A165228E133630024639B /* Core */,
+				0B1A165528E133A60024639B /* Users */,
+				0B1A165328E133780024639B /* Rooms */,
+				0B1A165428E1338B0024639B /* Utility */,
+				0B1A165628E133D20024639B /* Game */,
 				0B963A8128AD0FCB00BCD17E /* Assets.xcassets */,
+				0B963A7E28AD0FC900BCD17E /* Main.storyboard */,
 				0B963A8328AD0FCB00BCD17E /* LaunchScreen.storyboard */,
 				0B963A8628AD0FCB00BCD17E /* Info.plist */,
 			);
@@ -161,7 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B963A8528AD0FCB00BCD17E /* LaunchScreen.storyboard in Resources */,
-				0B963A8D28AD118C00BCD17E /* GoogleService-Info.plist in Resources */,
 				0B963A8228AD0FCB00BCD17E /* Assets.xcassets in Resources */,
 				0B963A8028AD0FC900BCD17E /* Main.storyboard in Resources */,
 			);
