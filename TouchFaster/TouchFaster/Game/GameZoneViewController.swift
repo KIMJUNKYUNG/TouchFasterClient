@@ -12,6 +12,11 @@ class GameZoneViewController: UIViewController {
     @IBOutlet weak var noticeLabel: UILabel!
     var circleButtons = [UIButton]()
     
+    let circleHeight = 60
+    let circleWidth = 60
+    var gameZoneHeight : Int?
+    var gameZoneWidth : Int?
+    
     var loadingView = UIView()
     var loadingLabel = UILabel()
     var loadingTimer : Timer?
@@ -19,9 +24,20 @@ class GameZoneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.gameStart()
+        
+        self.noticeLabel.text = ""
+        self.timerLabel.text = ""
+        
         socketOn()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.gameStart()
+    }
+    override func viewDidLayoutSubviews() {
+        gameZoneHeight = Int(self.view.bounds.height)
+        gameZoneWidth = Int(self.view.bounds.width)
+    }
+    
     func socketOn(){
         SocketIOManager.shared.socket.on("gameDone"){ dataArray, ack in
             self.timerLabel.pauseTimer(self)
@@ -31,25 +47,28 @@ class GameZoneViewController: UIViewController {
     }
     
     func gameStart(){
-        self.noticeLabel.text = ""
-        
-        let gameZoneHeight = Int(self.view.bounds.height)
-        let gameZoneWidth = Int(self.view.bounds.width)
-
-        let circleHeight = 60
-        let circleWidth = 60
+        guard
+            let hasGameZoneHeight = gameZoneHeight,
+            let hasGameZoneWidth = gameZoneWidth
+        else {
+            return
+        }
         
         for number in stride(from: 10, to: 0, by: -1){
             let circleButton = UIButton()
             circleButtons.append(circleButton)
+            
+            var randomY = Int.random(in: 0...(hasGameZoneHeight - circleHeight))
+            var randomX = Int.random(in: 0...(hasGameZoneWidth - circleWidth))
 
-            // Game Zone : 414, 818
-            // view : 390, 844
-            // Real Game Zone Size : 390, 763
-
-            let randomY = Int.random(in: 0...(gameZoneHeight - circleHeight))
-            let randomX = Int.random(in: 0...(gameZoneWidth - circleWidth))
-
+            if number == 2{
+                randomX = hasGameZoneWidth - circleWidth
+                randomY = hasGameZoneHeight - circleHeight
+            }else if number == 1{
+                randomX = 0
+                randomY = 0
+            }
+            
             circleButton.frame = CGRect(x: randomX, y: randomY, width: circleWidth, height: circleHeight)
             circleButton.backgroundColor = .gray
             circleButton.layer.cornerRadius = circleButton.bounds.height / 2
@@ -65,7 +84,7 @@ class GameZoneViewController: UIViewController {
             self.view.addSubview(circleButton)
         }
         
-        loadingView.frame = CGRect(x: 0, y: 0, width: gameZoneWidth, height: gameZoneHeight)
+        loadingView.frame = CGRect(x: 0, y: 0, width: hasGameZoneWidth, height: hasGameZoneHeight)
         loadingView.backgroundColor = .lightGray
         self.view.addSubview(loadingView)
         

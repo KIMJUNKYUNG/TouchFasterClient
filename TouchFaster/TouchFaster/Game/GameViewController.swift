@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var btnStart: UIButton!
     
-    var gameZoneVC : GameZoneViewController!
+    var gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
@@ -47,7 +47,6 @@ class GameViewController: UIViewController {
             }
         }
         SocketIOManager.shared.socket.on("gameStart") { _,_ in
-            self.gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
             self.gameZoneVC.modalTransitionStyle = .crossDissolve
             self.gameZoneVC.modalPresentationStyle = .fullScreen
             self.present(self.gameZoneVC, animated: true)
