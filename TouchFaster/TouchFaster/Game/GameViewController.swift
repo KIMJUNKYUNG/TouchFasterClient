@@ -20,18 +20,18 @@ extension Data {
 class GameViewController: UIViewController {
     var isRoomOwner = false
     var roomName : String?
-    
-    @IBOutlet weak var noticeLabel: UILabel!
-    
-    @IBOutlet weak var btnReady: UIButton!
     var isReady = false
     
+    @IBOutlet weak var btnReady: UIButton!
     @IBOutlet weak var btnStart: UIButton!
+    
+    @IBOutlet weak var player1: GameProfile!
+    @IBOutlet weak var player2: GameProfile!
+    
     
     var gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
         socketOn()
     }
     func socketOn(){
@@ -39,7 +39,23 @@ class GameViewController: UIViewController {
             
         }
         SocketIOManager.shared.socket.on("gameReady") { dataArray, ack in
-            let gameReady = dataArray[0] as! Bool
+            let readyInfo = dataArray[0] as! NSDictionary
+            let p1Ready = readyInfo["p1"] as! Bool
+            let p2Ready = readyInfo["p2"] as! Bool
+            
+            
+            if p1Ready{
+                self.player1.ready.textColor = .orange
+            }else{
+                self.player1.ready.textColor = .systemGray
+            }
+            if p2Ready{
+                self.player2.ready.textColor = .orange
+            }else{
+                self.player2.ready.textColor = .systemGray
+            }
+            
+            let gameReady = p1Ready && p2Ready
             if self.isRoomOwner && gameReady{
                 self.btnStart.isEnabled = true
             }else{
@@ -54,13 +70,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func readyButtonTouched(_ sender: Any) {
-        if !isReady{
-            isReady = true
-            self.btnReady.backgroundColor = .yellow
-        }else{
-            isReady = false
-            self.btnReady.backgroundColor = UIColor.black.withAlphaComponent(0.0)
-        }
+        isReady = !isReady
         SocketIOManager.shared.socket.emit("ready", isRoomOwner, isReady)
     }
     @IBAction func startButtonTouched(_ sender: Any) {

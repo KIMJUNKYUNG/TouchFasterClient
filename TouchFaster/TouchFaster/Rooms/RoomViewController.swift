@@ -76,8 +76,11 @@ extension RoomViewController{   // BarButton
           else { return }
           
             SocketIOManager.shared.socket.emit("createRoom", roomName)
-            self.joinRoomName = roomName
-            self.performSegue(withIdentifier: "createRoom", sender: true)
+            if let gameVC = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController{
+                gameVC.roomName = roomName
+                gameVC.isRoomOwner = true
+                self.present(gameVC, animated: true)
+            }
         }
 
         let cancelAction = UIAlertAction(
@@ -134,8 +137,14 @@ extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         SocketIOManager.shared.socket.emit("joinRoom", indexPath.row)
         if let roomInfo = self.roomInfos?.getNSDict(indexPath.row){
-                self.joinRoomName = roomInfo["roomName"] as? String ?? ""
+            guard
+                let gameVC = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController,
+                let roomName = roomInfo["roomName"] as? String
+            else { return }
+            
+            gameVC.roomName = roomName
+            gameVC.isRoomOwner = false
+            self.present(gameVC, animated: true)
         }
-        self.performSegue(withIdentifier: "joinRoom", sender: true)
     }
 }
