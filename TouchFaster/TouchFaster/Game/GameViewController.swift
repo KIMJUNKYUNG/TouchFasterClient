@@ -18,18 +18,8 @@ extension Data {
 }
 
 class GameViewController: UIViewController {
-    @IBOutlet weak var gameZone: UIView!
-    var circleButtons = [UIButton]()
-    
     var isRoomOwner = false
     var roomName : String?
-    
-    var loadingView = UIView()
-    var loadingLabel = UILabel()
-    var loadingTimer : Timer?
-    var loadingCount = 3
-    
-    @IBOutlet weak var timerLabel: TimerLabel!
     
     @IBOutlet weak var noticeLabel: UILabel!
     
@@ -38,7 +28,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var btnStart: UIButton!
     
-    
+    var gameZoneVC : GameZoneViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
@@ -46,29 +36,21 @@ class GameViewController: UIViewController {
     }
     func socketOn(){
         SocketIOManager.shared.socket.on("roomReady") { _,_  in
-            self.noticeLabel.text = "Room Is Online!"
-            self.btnReady.isEnabled = true
+            
         }
         SocketIOManager.shared.socket.on("gameReady") { dataArray, ack in
             let gameReady = dataArray[0] as! Bool
             if self.isRoomOwner && gameReady{
-                self.btnStart.isEnabled = false
-            }else{
                 self.btnStart.isEnabled = true
+            }else{
+                self.btnStart.isEnabled = false
             }
         }
         SocketIOManager.shared.socket.on("gameStart") { _,_ in
-            self.gameStart()
-        }
-        SocketIOManager.shared.socket.on("win"){ _,_ in
-            self.noticeLabel.isHidden = false
-            self.noticeLabel.text = "You Win!"
-        }
-        SocketIOManager.shared.socket.on("lose"){ _,_ in
-            self.noticeLabel.isHidden = false
-            self.noticeLabel.text = "You Lose!"
-            
-            self.timerLabel.pauseTimer(self)
+            self.gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
+            self.gameZoneVC.modalTransitionStyle = .crossDissolve
+            self.gameZoneVC.modalPresentationStyle = .fullScreen
+            self.present(self.gameZoneVC, animated: true)
         }
     }
     
@@ -88,85 +70,6 @@ class GameViewController: UIViewController {
     @IBAction func quitButtonTouched(_ sender: Any) {
         SocketIOManager.shared.socket.emit("quitRoom", isRoomOwner, roomName ?? "")
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    func gameStart(){
-        self.btnReady.isHidden = true
-        self.btnStart.isHidden = true
-        self.noticeLabel.isHidden = true
-        
-        let gameZoneHeight = 753
-        let gameZoneWidth = 390
-
-        let circleHeight = 60
-        let circleWidth = 60
-        
-        for number in stride(from: 10, to: 0, by: -1){
-            let circleButton = UIButton()
-            circleButtons.append(circleButton)
-
-            // Game Zone : 414, 818
-            // view : 390, 844
-            // Real Game Zone Size : 390, 763
-
-            let randomY = Int.random(in: 0...(gameZoneHeight - circleHeight))
-            let randomX = Int.random(in: 0...(gameZoneWidth - circleWidth))
-
-            circleButton.frame = CGRect(x: randomX, y: randomY, width: circleWidth, height: circleHeight)
-            circleButton.backgroundColor = .gray
-            circleButton.layer.cornerRadius = circleButton.bounds.height / 2
-
-            circleButton.setTitle("\(number)", for: .normal)
-            circleButton.titleLabel?.font = .systemFont(ofSize: 25)
-
-            if number == 1 {
-                circleButton.backgroundColor = .red
-                circleButton.addTarget(self, action: #selector(currentButtonTouched(_:)), for: .touchDown)
-            }
-            
-            self.gameZone.addSubview(circleButton)
-        }
-        
-        loadingView.frame = CGRect(x: 0, y: 0, width: gameZoneWidth, height: gameZoneHeight)
-        loadingView.backgroundColor = .lightGray
-        self.gameZone.addSubview(loadingView)
-        
-        loadingView.addSubview(loadingLabel)
-        loadingLabel.frame = CGRect(x: 100, y: 200, width: 175, height: 50)
-        
-        loadingLabel.font = .systemFont(ofSize: 25)
-        
-        loadingLabel.translatesAutoresizingMaskIntoConstraints = false
-        loadingLabel.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor).isActive = true
-        loadingLabel.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor).isActive = true
-        
-        loadingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countdownTimer), userInfo: nil, repeats: true)
-    }
-    
-    @objc func countdownTimer()
-    {
-        if loadingCount == 0{
-            self.loadingTimer?.invalidate()
-            self.loadingLabel.removeFromSuperview()
-            self.loadingView.removeFromSuperview()
-            self.loadingCount = 3
-            self.timerLabel.startTimer(self)
-        }
-        loadingLabel.text = String(loadingCount)
-        loadingCount -= 1
-    }
-
-    @objc func currentButtonTouched(_ sender : UIButton){
-        circleButtons.removeLast()
-        sender.removeFromSuperview()
-        if circleButtons.isEmpty{
-            self.timerLabel.pauseTimer(self)
-            SocketIOManager.shared.socket.emit("gameDone")
-            return 
-        }
-        
-        circleButtons.last?.backgroundColor = .red
-        circleButtons.last?.addTarget(self, action: #selector(currentButtonTouched(_:)), for: .touchDown)
     }
 }
  
