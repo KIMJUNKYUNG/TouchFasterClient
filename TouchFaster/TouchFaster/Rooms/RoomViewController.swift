@@ -46,12 +46,14 @@ extension RoomViewController{   // BarButton
         createRoomIcon.setImage(UIImage(systemName: "plus"), for: .normal)
         createRoomIcon.addTarget(self, action: #selector(createRoomDidTouched), for: .touchUpInside)
         createRoomIcon.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        createRoomIcon.tintColor = .black
         let btnCreateRoom = UIBarButtonItem(customView: createRoomIcon)
         
         let loginUsersIcon : UIButton = UIButton.init(type: .custom)
         loginUsersIcon.setImage(UIImage(systemName: "person.3.fill"), for: .normal)
         loginUsersIcon.addTarget(self, action: #selector(logOnUsers), for: .touchUpInside)
         loginUsersIcon.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        loginUsersIcon.tintColor = .black
         let btnLoginUsers = UIBarButtonItem(customView: loginUsersIcon)
         
         self.navigationItem.setRightBarButtonItems([btnCreateRoom, btnLoginUsers], animated: false)
