@@ -9,10 +9,40 @@ import UIKit
 
 class ViewController : UIViewController, UITextFieldDelegate{
     
+    @IBOutlet weak var mainTitle: UILabel!
+    @IBOutlet weak var btnLocal: UIButton!
+    @IBOutlet weak var btnOnline: UIButton!
+    @IBOutlet weak var btnExit: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initHomePageView()
     }
     let limitLength = 5
+    
+    func initHomePageView(){
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "hand.tap.fill")
+        imageAttachment.bounds.size = CGSize(width: 25, height: 25)
+
+        imageAttachment.image = UIImage(systemName: "hand.tap.fill")?.withTintColor(.systemGray6)
+
+        let fullString = NSMutableAttributedString(string: "TOUCH FASTER ")
+        fullString.append(NSAttributedString(attachment: imageAttachment))
+        mainTitle.attributedText = fullString
+        
+        btnLocal.layer.cornerRadius = btnLocal.bounds.height / 3
+        btnLocal.layer.borderWidth = 1
+        btnLocal.layer.borderColor = UIColor.systemGray6.cgColor
+        
+        btnOnline.layer.cornerRadius = btnLocal.bounds.height / 3
+        btnOnline.layer.borderWidth = 1
+        btnOnline.layer.borderColor = UIColor.systemGray6.cgColor
+        
+        btnExit.layer.cornerRadius = btnLocal.bounds.height / 3
+        btnExit.layer.borderWidth = 1
+        btnExit.layer.borderColor = UIColor.systemGray6.cgColor
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
@@ -20,7 +50,7 @@ class ViewController : UIViewController, UITextFieldDelegate{
                return newLength <= limitLength
     }
     
-    @IBAction func multiPlayButtonTouched(_ sender: UIButton) {
+    @IBAction func onlineButtonTouched(_ sender: UIButton) {
         if let roomsVC = storyboard?.instantiateViewController(withIdentifier: "Rooms") as? RoomViewController {
             let alert = UIAlertController(
               title: "Create Nickname",

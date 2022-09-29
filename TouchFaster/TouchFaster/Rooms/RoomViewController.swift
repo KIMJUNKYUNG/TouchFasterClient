@@ -18,6 +18,7 @@ class RoomViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .systemGray6
         initTableView()
         initBarButtons()
         initSocket()
@@ -119,6 +120,7 @@ extension RoomViewController{
 
 extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
     func initTableView(){
+        roomTableView.backgroundColor = .systemGray6
         roomTableView.delegate = self
         roomTableView.dataSource = self
     }

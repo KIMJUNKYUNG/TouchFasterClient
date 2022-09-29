@@ -116,11 +116,12 @@
                                     <constraint firstAttribute="height" constant="50" id="xLl-Sh-KNw"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Multi Play">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ONLINE">
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="multiPlayButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="rfi-nm-FOs"/>
+                                    <action selector="onlineButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="wkt-7T-6Qn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZk-We-dCV">
@@ -131,20 +132,21 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Exit">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="exitButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="Ole-Al-vrE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch Faster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9l-vp-K3o">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOUCH FASTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9l-vp-K3o">
                                 <rect key="frame" x="45" y="114.33333333333331" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Urx-xk-XlK"/>
                                     <constraint firstAttribute="height" constant="50" id="hJr-YW-sTo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="38"/>
+                                <color key="textColor" systemColor="systemGray6Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-2f-wOu">
@@ -154,8 +156,9 @@
                                     <constraint firstAttribute="height" constant="50" id="v3a-jg-5Op"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Single Play">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                <buttonConfiguration key="configuration" style="plain" title="LOCAL">
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="pYz-ma-ikq"/>
@@ -163,7 +166,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nY2-WQ-VRA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="yZk-We-dCV" firstAttribute="centerX" secondItem="T1o-gK-eTh" secondAttribute="centerX" id="3Lu-lx-lLe"/>
                             <constraint firstItem="Nwg-2f-wOu" firstAttribute="centerY" secondItem="T1o-gK-eTh" secondAttribute="centerY" multiplier="1.5" id="HqD-xu-bYs"/>
@@ -176,6 +179,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ec9-wD-xOU"/>
+                    <connections>
+                        <outlet property="btnExit" destination="yZk-We-dCV" id="6ZT-wi-Zxv"/>
+                        <outlet property="btnLocal" destination="Nwg-2f-wOu" id="PI4-Hq-PZq"/>
+                        <outlet property="btnOnline" destination="7VA-8b-e8f" id="Dih-bm-zSf"/>
+                        <outlet property="mainTitle" destination="d9l-vp-K3o" id="gHD-JP-iWA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cBG-vK-RAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,7 +199,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-yi-Jsq">
-                                <rect key="frame" x="0.0" y="64.333333333333314" width="390" height="779.66666666666674"/>
+                                <rect key="frame" x="0.0" y="69.333333333333314" width="390" height="774.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" rowHeight="100" id="er3-np-cYA" customClass="RoomCell" customModule="TouchFaster" customModuleProvider="target">
@@ -248,7 +257,7 @@
                             <constraint firstItem="fzw-vt-FFY" firstAttribute="trailing" secondItem="yGX-nu-fJf" secondAttribute="trailing" constant="5" id="CeC-ur-4DQ"/>
                             <constraint firstItem="iZi-yi-Jsq" firstAttribute="trailing" secondItem="fzw-vt-FFY" secondAttribute="trailing" id="FeJ-Js-1HU"/>
                             <constraint firstAttribute="bottom" secondItem="iZi-yi-Jsq" secondAttribute="bottom" id="Hcl-bB-Uke"/>
-                            <constraint firstItem="iZi-yi-Jsq" firstAttribute="top" secondItem="yGX-nu-fJf" secondAttribute="bottom" id="Iz0-hF-UIv"/>
+                            <constraint firstItem="iZi-yi-Jsq" firstAttribute="top" secondItem="yGX-nu-fJf" secondAttribute="bottom" constant="5" id="Iz0-hF-UIv"/>
                             <constraint firstItem="yGX-nu-fJf" firstAttribute="top" secondItem="fzw-vt-FFY" secondAttribute="top" id="fKN-cG-OKe"/>
                             <constraint firstItem="iZi-yi-Jsq" firstAttribute="leading" secondItem="fzw-vt-FFY" secondAttribute="leading" id="kDe-8a-Rd7"/>
                             <constraint firstItem="yGX-nu-fJf" firstAttribute="leading" secondItem="fzw-vt-FFY" secondAttribute="leading" constant="16" id="n6i-8f-82O"/>
@@ -355,6 +364,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
