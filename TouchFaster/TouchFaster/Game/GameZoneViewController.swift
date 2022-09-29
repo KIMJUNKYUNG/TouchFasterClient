@@ -27,6 +27,7 @@ class GameZoneViewController: UIViewController {
         
         self.noticeLabel.text = ""
         self.timerLabel.text = ""
+        self.view.backgroundColor = .systemGray6
         
         socketOn()
     }
@@ -58,16 +59,8 @@ class GameZoneViewController: UIViewController {
             let circleButton = UIButton()
             circleButtons.append(circleButton)
             
-            var randomY = Int.random(in: 0...(hasGameZoneHeight - circleHeight))
-            var randomX = Int.random(in: 0...(hasGameZoneWidth - circleWidth))
-
-            if number == 2{
-                randomX = hasGameZoneWidth - circleWidth
-                randomY = hasGameZoneHeight - circleHeight
-            }else if number == 1{
-                randomX = 0
-                randomY = 0
-            }
+            let randomY = Int.random(in: 0...(hasGameZoneHeight - circleHeight))
+            let randomX = Int.random(in: 0...(hasGameZoneWidth - circleWidth))
             
             circleButton.frame = CGRect(x: randomX, y: randomY, width: circleWidth, height: circleHeight)
             circleButton.backgroundColor = .gray
@@ -85,13 +78,14 @@ class GameZoneViewController: UIViewController {
         }
         
         loadingView.frame = CGRect(x: 0, y: 0, width: hasGameZoneWidth, height: hasGameZoneHeight)
-        loadingView.backgroundColor = .lightGray
+        loadingView.backgroundColor = .black
         self.view.addSubview(loadingView)
         
         loadingView.addSubview(loadingLabel)
         loadingLabel.frame = CGRect(x: 100, y: 200, width: 175, height: 50)
         
-        loadingLabel.font = .systemFont(ofSize: 25)
+        loadingLabel.font = UIFont(name: "Noteworthy-Bold", size: 55)
+        loadingLabel.textColor = .white
         
         loadingLabel.translatesAutoresizingMaskIntoConstraints = false
         loadingLabel.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor).isActive = true

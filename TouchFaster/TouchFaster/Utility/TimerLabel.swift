@@ -82,6 +82,6 @@ private extension TimerLabel {
     }
 
     func setFonts() {
-        self.font = UIFont.monospacedDigitSystemFont(ofSize: self.font.pointSize, weight: .regular)
+        self.font = UIFont(name: "Noteworthy-Bold", size: self.font.pointSize)
     }
 }
