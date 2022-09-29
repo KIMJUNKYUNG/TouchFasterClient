@@ -25,6 +25,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnReady: UIButton!
     @IBOutlet weak var btnStart: UIButton!
     
+    var p1Name : String?
+    var p2Name : String?
     @IBOutlet weak var player1: GameProfile!
     @IBOutlet weak var player2: GameProfile!
     
@@ -35,14 +37,27 @@ class GameViewController: UIViewController {
         socketOn()
     }
     func socketOn(){
-        SocketIOManager.shared.socket.on("roomReady") { _,_  in
+        SocketIOManager.shared.socket.on("roomCondition") { dataArray, ack in
+            let roomCondition = dataArray[0] as! NSDictionary
             
-        }
-        SocketIOManager.shared.socket.on("gameReady") { dataArray, ack in
-            let readyInfo = dataArray[0] as! NSDictionary
-            let p1Ready = readyInfo["p1"] as! Bool
-            let p2Ready = readyInfo["p2"] as! Bool
+            if let p1Name = roomCondition["ownerNickName"] as? String{
+                self.player1.nickName.text = p1Name
+                self.player1.nickName.textColor = .white
+            }else{
+                self.player1.nickName.text = "empty"
+                self.player1.nickName.textColor = .systemGray
+            }
             
+            if let p2Name = roomCondition["clientNickName"] as? String{
+                self.player2.nickName.text = p2Name
+                self.player2.nickName.textColor = .white
+            }else{
+                self.player2.nickName.text = "empty"
+                self.player2.nickName.textColor = .systemGray
+            }
+            
+            let p1Ready = roomCondition["ownerReady"] as! Bool
+            let p2Ready = roomCondition["clientReady"] as! Bool
             
             if p1Ready{
                 self.player1.ready.textColor = .orange
@@ -78,7 +93,7 @@ class GameViewController: UIViewController {
     }
     @IBAction func quitButtonTouched(_ sender: Any) {
         SocketIOManager.shared.socket.emit("quitRoom", isRoomOwner, roomName ?? "")
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
 }
  

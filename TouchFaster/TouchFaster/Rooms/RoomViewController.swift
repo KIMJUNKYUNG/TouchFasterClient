@@ -79,6 +79,7 @@ extension RoomViewController{   // BarButton
             if let gameVC = self.storyboard?.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController{
                 gameVC.roomName = roomName
                 gameVC.isRoomOwner = true
+                gameVC.p1Name = self.nickName ?? ""
                 self.present(gameVC, animated: true)
             }
         }
