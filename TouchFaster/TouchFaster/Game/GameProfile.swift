@@ -22,11 +22,12 @@ class GameProfile : UIView{
         super.init(coder: coder)
         Bundle.main.loadNibNamed("GameProfile", owner: self)
         
-        
         self.addSubview(contentview)
         contentview.frame = self.bounds
         contentview.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         self.contentview.layer.cornerRadius = self.contentview.bounds.height / 6
+        contentview.layer.borderWidth = 1
+        contentview.layer.borderColor = UIColor.systemGray6.cgColor
     }
 }

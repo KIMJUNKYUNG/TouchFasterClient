@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var btnReady: UIButton!
     @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var btnQuit: UIButton!
     
     var p1Name : String?
     var p2Name : String?
@@ -34,7 +35,21 @@ class GameViewController: UIViewController {
     var gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
+        initGameRoomView()
         socketOn()
+    }
+    func initGameRoomView(){
+        btnStart.layer.cornerRadius = btnReady.bounds.height / 3
+        btnStart.layer.borderWidth = 1
+        btnStart.layer.borderColor = UIColor.systemGray6.cgColor
+        
+        btnReady.layer.cornerRadius = btnReady.bounds.height / 3
+        btnReady.layer.borderWidth = 1
+        btnReady.layer.borderColor = UIColor.systemGray6.cgColor
+        
+        btnQuit.layer.cornerRadius = btnQuit.bounds.height / 3
+        btnQuit.layer.borderWidth = 1
+        btnQuit.layer.borderColor = UIColor.systemGray6.cgColor
     }
     func socketOn(){
         SocketIOManager.shared.socket.on("roomCondition") { dataArray, ack in
@@ -72,9 +87,9 @@ class GameViewController: UIViewController {
             
             let gameReady = p1Ready && p2Ready
             if self.isRoomOwner && gameReady{
-                self.btnStart.isEnabled = true
+                self.btnStart.isHidden = false
             }else{
-                self.btnStart.isEnabled = false
+                self.btnStart.isHidden = true
             }
         }
         SocketIOManager.shared.socket.on("gameStart") { _,_ in
