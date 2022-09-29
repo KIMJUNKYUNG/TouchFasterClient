@@ -18,8 +18,6 @@ class RoomViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Rooms"
-        
         initTableView()
         initBarButtons()
         initSocket()
@@ -57,6 +55,13 @@ extension RoomViewController{   // BarButton
         let btnLoginUsers = UIBarButtonItem(customView: loginUsersIcon)
         
         self.navigationItem.setRightBarButtonItems([btnCreateRoom, btnLoginUsers], animated: false)
+        
+        let leftLabel : UILabel = UILabel.init(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        leftLabel.text = "Rooms"
+        leftLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        let btnLeft = UIBarButtonItem(customView: leftLabel)
+        
+        self.navigationItem.setLeftBarButton(btnLeft, animated: false)
     }
     
     @objc func logOnUsers(_ sender: UIBarButtonItem){
