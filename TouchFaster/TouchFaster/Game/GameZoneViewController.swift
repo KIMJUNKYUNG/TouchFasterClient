@@ -41,9 +41,12 @@ class GameZoneViewController: UIViewController {
     
     func socketOn(){
         SocketIOManager.shared.socket.on("gameDone"){ dataArray, ack in
-            self.timerLabel.pauseTimer(self)
             let winner = dataArray[0] as! String
-            self.noticeLabel.text = winner + " win!"
+            let gameDoneTime = dataArray[1] as! String
+            
+            self.noticeLabel.text = winner + " WIN !!!"
+            self.timerLabel.pauseTimer(self)
+            self.timerLabel.text = gameDoneTime
         }
     }
     
@@ -112,7 +115,7 @@ class GameZoneViewController: UIViewController {
         sender.removeFromSuperview()
         if circleButtons.isEmpty{
             self.timerLabel.pauseTimer(self)
-            SocketIOManager.shared.socket.emit("gameDone")
+            SocketIOManager.shared.socket.emit("gameDone", self.timerLabel.currentTime())
             return
         }
         

@@ -29,6 +29,10 @@ class TimerLabel: UILabel {
             self.resetTimer(self)
         }
     
+        func currentTime() -> String {
+            return self.text ?? "99:99:99"
+        }
+    
         @IBAction func resetTimer(_ sender: Any) {
             stopDisplayLink()
             elapsed = 0
@@ -74,7 +78,7 @@ private extension TimerLabel {
         let (minutes, hundredthsOfSeconds) = hundredths.quotientAndRemainder(dividingBy: 60 * 100)
         let (seconds, milliseconds) = hundredthsOfSeconds.quotientAndRemainder(dividingBy: 100)
 
-        self.text = String(minutes) + ":" + String(format: "%02d", seconds) + ":" + String(format: "%02d", milliseconds)
+        self.text = String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds) + ":" + String(format: "%02d", milliseconds)
     }
 
     func roundButtons() {
