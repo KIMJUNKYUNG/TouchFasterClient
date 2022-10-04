@@ -40,14 +40,15 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         initGameRoomView()
         
-        print("--viewDidLoad--")
+//        print("--viewDidLoad--")
         socketOn()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("--viewWillAppear--")
+//        print("--viewWillAppear--")
+        updateReadyCondition(p1Ready: false, p2Ready: false)
         if let winnerName = winnerName,
            let gameDoneTime = gameDoneTime{
             self.winnerNameLabel.isHidden = false
@@ -96,30 +97,33 @@ class GameViewController: UIViewController {
             let p1Ready = roomCondition["ownerReady"] as! Bool
             let p2Ready = roomCondition["clientReady"] as! Bool
             
-            if p1Ready{
-                self.player1.ready.textColor = .orange
-            }else{
-                self.player1.ready.textColor = .systemGray
-            }
-            if p2Ready{
-                self.player2.ready.textColor = .orange
-            }else{
-                self.player2.ready.textColor = .systemGray
-            }
-            
-            let gameReady = p1Ready && p2Ready
-            if self.isRoomOwner && gameReady{
-                self.btnStart.isHidden = false
-            }else{
-                self.btnStart.isHidden = true
-            }
+            self.updateReadyCondition(p1Ready: p1Ready, p2Ready: p2Ready)
         }
         SocketIOManager.shared.socket.on("gameStart") { _,_ in
-            var gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
+            let gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
             gameZoneVC.modalTransitionStyle = .crossDissolve
             gameZoneVC.modalPresentationStyle = .fullScreen
             gameZoneVC.delegate = self
             self.present(gameZoneVC, animated: true)
+        }
+    }
+    func updateReadyCondition(p1Ready : Bool, p2Ready : Bool){
+        if p1Ready{
+            self.player1.ready.textColor = .orange
+        }else{
+            self.player1.ready.textColor = .systemGray
+        }
+        if p2Ready{
+            self.player2.ready.textColor = .orange
+        }else{
+            self.player2.ready.textColor = .systemGray
+        }
+        
+        let gameReady = p1Ready && p2Ready
+        if self.isRoomOwner && gameReady{
+            self.btnStart.isHidden = false
+        }else{
+            self.btnStart.isHidden = true
         }
     }
     
