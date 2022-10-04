@@ -228,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iZi-yi-Jsq">
-                                <rect key="frame" x="0.0" y="69.333333333333314" width="390" height="774.66666666666674"/>
+                                <rect key="frame" x="0.0" y="68.333333333333314" width="390" height="706"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" rowHeight="100" id="er3-np-cYA" customClass="RoomCell" customModule="TouchFaster" customModuleProvider="target">
@@ -239,11 +239,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrJ-DX-ts1">
-                                                    <rect key="frame" x="39.999999999999993" y="40" width="93.333333333333314" height="20"/>
+                                                    <rect key="frame" x="40" y="40" width="95" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="FSz-Wz-ZlX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -274,26 +274,65 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press '+' button to create a room" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGX-nu-fJf">
-                                <rect key="frame" x="16" y="44" width="369" height="20.333333333333329"/>
+                                <rect key="frame" x="16" y="44" width="369" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asF-Kh-lLP">
+                                <rect key="frame" x="82.666666666666686" y="774.33333333333337" width="114.33333333333331" height="35.666666666666629"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="HighScore">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbx-36-KIb">
+                                <rect key="frame" x="0.0" y="774.33333333333337" width="82.666666666666671" height="35.666666666666629"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt; Back">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backBtnTouched:" destination="i8i-RY-MRM" eventType="touchUpInside" id="vRR-av-iVo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FP5-Qi-mdS">
+                                <rect key="frame" x="197" y="774.33333333333337" width="74.333333333333314" height="36"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Users">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logOnUsers:" destination="i8i-RY-MRM" eventType="touchUpInside" id="3YS-6j-i8z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fzw-vt-FFY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="asF-Kh-lLP" firstAttribute="leading" secondItem="mbx-36-KIb" secondAttribute="trailing" id="7wZ-BN-Xih"/>
                             <constraint firstItem="fzw-vt-FFY" firstAttribute="trailing" secondItem="yGX-nu-fJf" secondAttribute="trailing" constant="5" id="CeC-ur-4DQ"/>
                             <constraint firstItem="iZi-yi-Jsq" firstAttribute="trailing" secondItem="fzw-vt-FFY" secondAttribute="trailing" id="FeJ-Js-1HU"/>
-                            <constraint firstAttribute="bottom" secondItem="iZi-yi-Jsq" secondAttribute="bottom" id="Hcl-bB-Uke"/>
                             <constraint firstItem="iZi-yi-Jsq" firstAttribute="top" secondItem="yGX-nu-fJf" secondAttribute="bottom" constant="5" id="Iz0-hF-UIv"/>
+                            <constraint firstItem="mbx-36-KIb" firstAttribute="leading" secondItem="fzw-vt-FFY" secondAttribute="leading" id="UIa-jf-KHY"/>
+                            <constraint firstItem="asF-Kh-lLP" firstAttribute="top" secondItem="iZi-yi-Jsq" secondAttribute="bottom" id="b6a-E7-xLN"/>
                             <constraint firstItem="yGX-nu-fJf" firstAttribute="top" secondItem="fzw-vt-FFY" secondAttribute="top" id="fKN-cG-OKe"/>
+                            <constraint firstItem="mbx-36-KIb" firstAttribute="top" secondItem="iZi-yi-Jsq" secondAttribute="bottom" id="gfZ-ms-p0L"/>
                             <constraint firstItem="iZi-yi-Jsq" firstAttribute="leading" secondItem="fzw-vt-FFY" secondAttribute="leading" id="kDe-8a-Rd7"/>
+                            <constraint firstItem="mbx-36-KIb" firstAttribute="bottom" secondItem="fzw-vt-FFY" secondAttribute="bottom" id="kTb-Tx-k0g"/>
                             <constraint firstItem="yGX-nu-fJf" firstAttribute="leading" secondItem="fzw-vt-FFY" secondAttribute="leading" constant="16" id="n6i-8f-82O"/>
+                            <constraint firstItem="FP5-Qi-mdS" firstAttribute="top" secondItem="iZi-yi-Jsq" secondAttribute="bottom" id="tXu-DP-W6j"/>
+                            <constraint firstItem="FP5-Qi-mdS" firstAttribute="leading" secondItem="asF-Kh-lLP" secondAttribute="trailing" id="v8D-U3-4S1"/>
+                            <constraint firstItem="fzw-vt-FFY" firstAttribute="bottom" secondItem="asF-Kh-lLP" secondAttribute="bottom" id="xaa-U0-Arm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KQs-tY-bmy"/>
                     <connections>
+                        <outlet property="backBtn" destination="mbx-36-KIb" id="3GZ-La-wkn"/>
+                        <outlet property="highScoreBtn" destination="asF-Kh-lLP" id="P9b-2f-nek"/>
                         <outlet property="roomTableView" destination="iZi-yi-Jsq" id="OYe-vD-7f6"/>
                         <segue destination="qNJ-C6-Q6d" kind="show" identifier="logOnUsers" id="Uo3-0S-M6c"/>
                     </connections>

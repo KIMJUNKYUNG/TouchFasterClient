@@ -15,13 +15,30 @@ class RoomViewController : UIViewController{
     var joinRoomName : String?
     var nickName : String?
     
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var highScoreBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .systemGray6
+        
         initTableView()
         initBarButtons()
+        initBottomButtons()
         initSocket()
+    }
+}
+
+extension RoomViewController{
+    func initBottomButtons(){
+        
+    }
+    @IBAction func backBtnTouched(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func logOnUsers(_ sender: UIButton){
+        self.performSegue(withIdentifier: "logOnUsers", sender: true)
     }
 }
 
@@ -50,14 +67,14 @@ extension RoomViewController{   // BarButton
         createRoomIcon.tintColor = .black
         let btnCreateRoom = UIBarButtonItem(customView: createRoomIcon)
         
-        let loginUsersIcon : UIButton = UIButton.init(type: .custom)
-        loginUsersIcon.setImage(UIImage(systemName: "person.3.fill"), for: .normal)
-        loginUsersIcon.addTarget(self, action: #selector(logOnUsers), for: .touchUpInside)
-        loginUsersIcon.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        loginUsersIcon.tintColor = .black
-        let btnLoginUsers = UIBarButtonItem(customView: loginUsersIcon)
+//        let loginUsersIcon : UIButton = UIButton.init(type: .custom)
+//        loginUsersIcon.setImage(UIImage(systemName: "person.3.fill"), for: .normal)
+//        loginUsersIcon.addTarget(self, action: #selector(logOnUsers), for: .touchUpInside)
+//        loginUsersIcon.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+//        loginUsersIcon.tintColor = .black
+//        let btnLoginUsers = UIBarButtonItem(customView: loginUsersIcon)
         
-        self.navigationItem.setRightBarButtonItems([btnCreateRoom, btnLoginUsers], animated: false)
+        self.navigationItem.setRightBarButtonItems([btnCreateRoom], animated: false)
         
         let leftLabel : UILabel = UILabel.init(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         leftLabel.text = "Rooms"
@@ -65,10 +82,6 @@ extension RoomViewController{   // BarButton
         let btnLeft = UIBarButtonItem(customView: leftLabel)
         
         self.navigationItem.setLeftBarButton(btnLeft, animated: false)
-    }
-    
-    @objc func logOnUsers(_ sender: UIBarButtonItem){
-        self.performSegue(withIdentifier: "logOnUsers", sender: true)
     }
     
     @objc func createRoomDidTouched(_ sender: UIBarButtonItem) {
