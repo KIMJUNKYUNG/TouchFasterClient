@@ -31,13 +31,35 @@ class GameViewController: UIViewController {
     @IBOutlet weak var player1: GameProfile!
     @IBOutlet weak var player2: GameProfile!
     
+    var winnerName : String?
+    var gameDoneTime : String?
+    @IBOutlet weak var winnerNameLabel: UILabel!
+    @IBOutlet weak var gameDoneTimeLabel: UILabel!
     
-    var gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
         initGameRoomView()
+        
+        print("--viewDidLoad--")
         socketOn()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("--viewWillAppear--")
+        if let winnerName = winnerName,
+           let gameDoneTime = gameDoneTime{
+            self.winnerNameLabel.isHidden = false
+            self.gameDoneTimeLabel.isHidden = false
+            self.winnerNameLabel.text = "WINNER : " + winnerName
+            self.gameDoneTimeLabel.text = gameDoneTime
+        }else{
+            self.winnerNameLabel.isHidden = true
+            self.gameDoneTimeLabel.isHidden = true
+        }
+    }
+    
     func initGameRoomView(){
         btnStart.layer.cornerRadius = btnReady.bounds.height / 3
         btnStart.layer.borderWidth = 1
@@ -93,9 +115,11 @@ class GameViewController: UIViewController {
             }
         }
         SocketIOManager.shared.socket.on("gameStart") { _,_ in
-            self.gameZoneVC.modalTransitionStyle = .crossDissolve
-            self.gameZoneVC.modalPresentationStyle = .fullScreen
-            self.present(self.gameZoneVC, animated: true)
+            var gameZoneVC = GameZoneViewController(nibName: "GameZoneViewController", bundle: nil)
+            gameZoneVC.modalTransitionStyle = .crossDissolve
+            gameZoneVC.modalPresentationStyle = .fullScreen
+            gameZoneVC.delegate = self
+            self.present(gameZoneVC, animated: true)
         }
     }
     
@@ -112,3 +136,9 @@ class GameViewController: UIViewController {
     }
 }
  
+extension GameViewController : GameZoneViewControllerDelegate {
+    func passWinnerInfo(name: String, time: String) {
+        winnerName = name
+        gameDoneTime = time
+    }
+}

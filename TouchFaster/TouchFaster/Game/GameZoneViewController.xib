@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameZoneViewController" customModule="TouchFaster" customModuleProvider="target">
             <connections>
-                <outlet property="noticeLabel" destination="iP2-RK-56g" id="Koj-ng-6P0"/>
                 <outlet property="timerLabel" destination="jKz-Sj-9No" id="oio-Ny-Ru7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,28 +20,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKz-Sj-9No" customClass="TimerLabel" customModule="TouchFaster" customModuleProvider="target">
-                    <rect key="frame" x="10" y="428.5" width="394" height="39.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                    <rect key="frame" x="10" y="424" width="394" height="48"/>
+                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
                     <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="notice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP2-RK-56g">
-                    <rect key="frame" x="10" y="350.5" width="394" height="53"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="33"/>
-                    <color key="textColor" systemColor="systemOrangeColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="jKz-Sj-9No" firstAttribute="top" secondItem="iP2-RK-56g" secondAttribute="bottom" constant="25" id="Nkh-NA-7By"/>
-                <constraint firstItem="iP2-RK-56g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OJP-rQ-61M"/>
-                <constraint firstItem="iP2-RK-56g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Pqm-9t-Em4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jKz-Sj-9No" secondAttribute="trailing" constant="10" id="ZWL-Q4-81t"/>
                 <constraint firstItem="jKz-Sj-9No" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="it9-yr-Ldv"/>
                 <constraint firstItem="jKz-Sj-9No" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="lMH-Iv-uyn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iP2-RK-56g" secondAttribute="trailing" constant="10" id="uem-bx-NVi"/>
             </constraints>
             <point key="canvasLocation" x="139" y="89"/>
         </view>
@@ -50,9 +39,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

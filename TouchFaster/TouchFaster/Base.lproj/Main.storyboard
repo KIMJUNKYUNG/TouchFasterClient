@@ -82,12 +82,27 @@
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="winnerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RL0-DA-HdA">
+                                <rect key="frame" x="115" y="335.66666666666669" width="160" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gameDoneTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWu-dK-ABR">
+                                <rect key="frame" x="108.66666666666669" y="403.66666666666669" width="173" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dgX-Ip-R0h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="7Pk-CV-wWo"/>
+                            <constraint firstItem="JWu-dK-ABR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="COa-sv-siO"/>
                             <constraint firstItem="OcI-us-imE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DVF-YV-P3v"/>
+                            <constraint firstItem="RL0-DA-HdA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hvz-a1-DGY"/>
+                            <constraint firstItem="RL0-DA-HdA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.85" constant="1" id="LIc-mp-9oN"/>
                             <constraint firstItem="oDX-st-hY1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VQM-hc-z58"/>
                             <constraint firstItem="dgX-Ip-R0h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XXd-dJ-zA1"/>
                             <constraint firstItem="OcI-us-imE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.75" id="aNG-iI-Uax"/>
@@ -98,14 +113,17 @@
                             <constraint firstItem="oDX-st-hY1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.25" id="oW3-jB-NYL"/>
                             <constraint firstItem="ymN-uZ-4W7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="vt4-EI-7GW"/>
                             <constraint firstItem="xrq-nZ-zos" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.75" constant="1" id="xMm-Jq-vvm"/>
+                            <constraint firstItem="JWu-dK-ABR" firstAttribute="top" secondItem="RL0-DA-HdA" secondAttribute="bottom" constant="20" id="zOO-0j-2y0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnQuit" destination="xrq-nZ-zos" id="CD3-mT-dYj"/>
                         <outlet property="btnReady" destination="jq6-gv-GH6" id="9LE-p3-vZI"/>
                         <outlet property="btnStart" destination="OcI-us-imE" id="RiS-OO-af7"/>
+                        <outlet property="gameDoneTimeLabel" destination="JWu-dK-ABR" id="skt-g9-cCp"/>
                         <outlet property="player1" destination="dgX-Ip-R0h" id="9fu-YB-WpO"/>
                         <outlet property="player2" destination="ymN-uZ-4W7" id="AyN-WT-vq0"/>
+                        <outlet property="winnerNameLabel" destination="RL0-DA-HdA" id="Rc7-pU-Tue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

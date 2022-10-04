@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol GameZoneViewControllerDelegate : AnyObject {
+    func passWinnerInfo(name : String, time : String)
+}
+
 class GameZoneViewController: UIViewController {
+    weak var delegate : GameZoneViewControllerDelegate?
+    
     @IBOutlet weak var timerLabel: TimerLabel!
-    @IBOutlet weak var noticeLabel: UILabel!
     var circleButtons = [UIButton]()
     
     let circleHeight = 60
@@ -25,7 +30,6 @@ class GameZoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.noticeLabel.text = ""
         self.timerLabel.text = ""
         self.view.backgroundColor = .systemGray6
         
@@ -41,12 +45,14 @@ class GameZoneViewController: UIViewController {
     
     func socketOn(){
         SocketIOManager.shared.socket.on("gameDone"){ dataArray, ack in
-            let winner = dataArray[0] as! String
+            let winnerName = dataArray[0] as! String
             let gameDoneTime = dataArray[1] as! String
             
-            self.noticeLabel.text = winner + " WIN !!!"
             self.timerLabel.pauseTimer(self)
             self.timerLabel.text = gameDoneTime
+            
+            self.delegate?.passWinnerInfo(name: winnerName, time: gameDoneTime)
+            self.dismiss(animated: true)
         }
     }
     
