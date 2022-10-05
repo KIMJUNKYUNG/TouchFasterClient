@@ -10,15 +10,50 @@ import UIKit
 class ViewController : UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var mainTitle: UILabel!
-    @IBOutlet weak var btnLocal: UIButton!
-    @IBOutlet weak var btnOnline: UIButton!
+    
+    var joinAction = UIAlertAction()
+    
+    @IBOutlet weak var btnSingle: UIButton!
+    @IBOutlet weak var btnMulti: UIButton!
     @IBOutlet weak var btnExit: UIButton!
+    
+    var nickName : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initHomePageView()
+        alertInsertNickName()
     }
     let limitLength = 5
+    
+    func alertInsertNickName(){
+        let alert = UIAlertController(
+          title: "Create Nickname",
+          message: "limit Length : \(limitLength) ",
+          preferredStyle: .alert
+        )
+
+        joinAction = UIAlertAction(title: "Join", style: .default) { _ in
+          guard
+            let textField = alert.textFields?.first,
+            let nickName = textField.text
+          else { return }
+            self.nickName = nickName
+            self.btnSingle.isEnabled = true
+            self.btnMulti.isEnabled = true
+        }
+        joinAction.isEnabled = false
+
+        alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+            textField.placeholder = "nickname"
+            textField.delegate = self
+        })
+        alert.addAction(joinAction)
+        alert.preferredAction = joinAction
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     func initHomePageView(){
         let imageAttachment = NSTextAttachment()
@@ -31,55 +66,41 @@ class ViewController : UIViewController, UITextFieldDelegate{
         fullString.append(NSAttributedString(attachment: imageAttachment))
         mainTitle.attributedText = fullString
         
-        btnLocal.layer.cornerRadius = btnLocal.bounds.height / 3
-        btnLocal.layer.borderWidth = 1
-        btnLocal.layer.borderColor = UIColor.systemGray6.cgColor
+        btnSingle.layer.cornerRadius = btnSingle.bounds.height / 3
+        btnSingle.layer.borderWidth = 1
+        btnSingle.layer.borderColor = UIColor.systemGray6.cgColor
         
-        btnOnline.layer.cornerRadius = btnLocal.bounds.height / 3
-        btnOnline.layer.borderWidth = 1
-        btnOnline.layer.borderColor = UIColor.systemGray6.cgColor
+        btnMulti.layer.cornerRadius = btnMulti.bounds.height / 3
+        btnMulti.layer.borderWidth = 1
+        btnMulti.layer.borderColor = UIColor.systemGray6.cgColor
         
-        btnExit.layer.cornerRadius = btnLocal.bounds.height / 3
+        btnExit.layer.cornerRadius = btnExit.bounds.height / 3
         btnExit.layer.borderWidth = 1
         btnExit.layer.borderColor = UIColor.systemGray6.cgColor
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
-               let newLength = text.count + string.count - range.length
-               return newLength <= limitLength
+        
+        let newString = (text as NSString).replacingCharacters(in: range, with: string) as NSString
+        if  newString != ""{
+            joinAction.isEnabled = true
+        } else {
+            joinAction.isEnabled = false
+        }
+        
+        let newLength = text.count + string.count - range.length
+        return newLength <= limitLength
     }
     
-    @IBAction func onlineButtonTouched(_ sender: UIButton) {
+    @IBAction func singleButtonTouched(_ sender: Any) {
+        
+    }
+    @IBAction func multiButtonTouched(_ sender: UIButton) {
         if let roomsVC = storyboard?.instantiateViewController(withIdentifier: "Rooms") as? RoomViewController {
-            let alert = UIAlertController(
-              title: "Create Nickname",
-              message: "limit Length : \(limitLength) ",
-              preferredStyle: .alert
-            )
-
-            let joinAction = UIAlertAction(title: "Join", style: .default) { _ in
-              guard
-                let textField = alert.textFields?.first,
-                let nickName = textField.text
-              else { return }
-                roomsVC.nickName = nickName
-                self.navigationController?.pushViewController(roomsVC, animated: true)
-            }
-
-            let cancelAction = UIAlertAction(
-              title: "Cancel",
-              style: .default)
-
-            alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-                textField.placeholder = "nickname"
-                textField.delegate = self
-            })
-            alert.addAction(cancelAction)
-            alert.addAction(joinAction)
-            alert.preferredAction = joinAction
             
-            present(alert, animated: true, completion: nil)
+            roomsVC.nickName = nickName
+            self.navigationController?.pushViewController(roomsVC, animated: true)
         }
     }
     @IBAction func exitButtonTouched(_ sender: UIButton) {

@@ -104,6 +104,7 @@ class GameViewController: UIViewController {
             gameZoneVC.modalTransitionStyle = .crossDissolve
             gameZoneVC.modalPresentationStyle = .fullScreen
             gameZoneVC.delegate = self
+            gameZoneVC.isSingle = false
             self.present(gameZoneVC, animated: true)
         }
     }

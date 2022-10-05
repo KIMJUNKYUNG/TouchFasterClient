@@ -27,6 +27,8 @@ class GameZoneViewController: UIViewController {
     var loadingTimer : Timer?
     var loadingCount = 3
     
+    var isSingle = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,8 +53,10 @@ class GameZoneViewController: UIViewController {
             self.timerLabel.pauseTimer(self)
             self.timerLabel.text = gameDoneTime
             
-            self.delegate?.passWinnerInfo(name: winnerName, time: gameDoneTime)
-            self.dismiss(animated: true)
+            if !self.isSingle{
+                self.delegate?.passWinnerInfo(name: winnerName, time: gameDoneTime)
+                self.dismiss(animated: true)
+            }
         }
     }
     

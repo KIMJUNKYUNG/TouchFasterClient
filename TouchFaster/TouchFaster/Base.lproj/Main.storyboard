@@ -138,7 +138,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VA-8b-e8f">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VA-8b-e8f">
                                 <rect key="frame" x="120" y="678" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="XlH-S5-uyL"/>
@@ -150,7 +150,7 @@
                                     <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="onlineButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="wkt-7T-6Qn"/>
+                                    <action selector="multiButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="Ejj-JS-MvN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZk-We-dCV">
@@ -178,7 +178,7 @@
                                 <color key="textColor" systemColor="systemGray6Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-2f-wOu">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-2f-wOu">
                                 <rect key="frame" x="120" y="608" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="64k-CM-SN9"/>
@@ -190,7 +190,7 @@
                                     <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="startButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="pYz-ma-ikq"/>
+                                    <action selector="singleButtonTouched:" destination="NdD-7A-55z" eventType="touchUpInside" id="9jJ-aA-WpN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -210,8 +210,8 @@
                     <navigationItem key="navigationItem" id="ec9-wD-xOU"/>
                     <connections>
                         <outlet property="btnExit" destination="yZk-We-dCV" id="6ZT-wi-Zxv"/>
-                        <outlet property="btnLocal" destination="Nwg-2f-wOu" id="PI4-Hq-PZq"/>
-                        <outlet property="btnOnline" destination="7VA-8b-e8f" id="Dih-bm-zSf"/>
+                        <outlet property="btnMulti" destination="7VA-8b-e8f" id="uQm-yc-hFa"/>
+                        <outlet property="btnSingle" destination="Nwg-2f-wOu" id="2E7-nT-Puj"/>
                         <outlet property="mainTitle" destination="d9l-vp-K3o" id="gHD-JP-iWA"/>
                     </connections>
                 </viewController>
