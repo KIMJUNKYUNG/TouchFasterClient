@@ -25,15 +25,11 @@ class RoomViewController : UIViewController{
         
         initTableView()
         initBarButtons()
-        initBottomButtons()
         initSocket()
     }
 }
 
 extension RoomViewController{
-    func initBottomButtons(){
-        
-    }
     @IBAction func backBtnTouched(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

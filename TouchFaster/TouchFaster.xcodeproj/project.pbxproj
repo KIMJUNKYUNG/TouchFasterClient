@@ -16,6 +16,8 @@
 		0B1A165E28E2E7A50024639B /* GameProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1A165D28E2E7A50024639B /* GameProfile.swift */; };
 		0B1A166228E342720024639B /* GameProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B1A166128E342720024639B /* GameProfile.xib */; };
 		0B47BFC228BDDA3C00C196D5 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 0B47BFC128BDDA3C00C196D5 /* SocketIO */; };
+		0B7297AC28ED14D60054B8FC /* HighScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7297AB28ED14D60054B8FC /* HighScoreCell.swift */; };
+		0B7297AE28ED14EA0054B8FC /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7297AD28ED14EA0054B8FC /* HighScoreViewController.swift */; };
 		0B963A7928AD0FC900BCD17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7828AD0FC900BCD17E /* AppDelegate.swift */; };
 		0B963A7B28AD0FC900BCD17E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */; };
 		0B963A7D28AD0FC900BCD17E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7C28AD0FC900BCD17E /* GameViewController.swift */; };
@@ -37,6 +39,8 @@
 		0B1A165A28E296730024639B /* GameZoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameZoneViewController.xib; sourceTree = "<group>"; };
 		0B1A165D28E2E7A50024639B /* GameProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProfile.swift; sourceTree = "<group>"; };
 		0B1A166128E342720024639B /* GameProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameProfile.xib; sourceTree = "<group>"; };
+		0B7297AB28ED14D60054B8FC /* HighScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreCell.swift; sourceTree = "<group>"; };
+		0B7297AD28ED14EA0054B8FC /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		0B963A7528AD0FC900BCD17E /* TouchFaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchFaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B963A7828AD0FC900BCD17E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,15 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		0B7297AA28ED14C00054B8FC /* HighScore */ = {
+			isa = PBXGroup;
+			children = (
+				0B7297AB28ED14D60054B8FC /* HighScoreCell.swift */,
+				0B7297AD28ED14EA0054B8FC /* HighScoreViewController.swift */,
+			);
+			path = HighScore;
+			sourceTree = "<group>";
+		};
 		0B963A6C28AD0FC900BCD17E = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				0B1A165228E133630024639B /* Core */,
-				0B1A165528E133A60024639B /* Users */,
 				0B1A165328E133780024639B /* Rooms */,
+				0B1A165528E133A60024639B /* Users */,
+				0B7297AA28ED14C00054B8FC /* HighScore */,
 				0B1A165628E133D20024639B /* Game */,
 				0B1A165428E1338B0024639B /* Utility */,
 				0B963A8128AD0FCB00BCD17E /* Assets.xcassets */,
@@ -224,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7297AC28ED14D60054B8FC /* HighScoreCell.swift in Sources */,
 				0B1A164728DF45900024639B /* utils.swift in Sources */,
 				0B1A164E28DF5B640024639B /* UserViewController.swift in Sources */,
 				0BC0393D28CF481B00AC3512 /* ViewController.swift in Sources */,
@@ -234,6 +249,7 @@
 				0B1A164528D817660024639B /* SocketIOManager.swift in Sources */,
 				0B1A165E28E2E7A50024639B /* GameProfile.swift in Sources */,
 				0BC0393F28CF4F4F00AC3512 /* RoomViewController.swift in Sources */,
+				0B7297AE28ED14EA0054B8FC /* HighScoreViewController.swift in Sources */,
 				0B963A7928AD0FC900BCD17E /* AppDelegate.swift in Sources */,
 				0B1A165128DF68830024639B /* UserCell.swift in Sources */,
 				0B963A7B28AD0FC900BCD17E /* SceneDelegate.swift in Sources */,
