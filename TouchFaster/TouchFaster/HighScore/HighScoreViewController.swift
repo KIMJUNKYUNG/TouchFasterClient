@@ -16,6 +16,7 @@ class HighScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "High Score"
         self.initTableView()
         
         SocketIOManager.shared.socket.emit("highScore")

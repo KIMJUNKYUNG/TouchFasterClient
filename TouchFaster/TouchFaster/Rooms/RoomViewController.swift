@@ -16,7 +16,6 @@ class RoomViewController : UIViewController{
     var nickName : String?
     
     @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var highScoreBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +39,6 @@ extension RoomViewController{
 
 extension RoomViewController{   // Socket
     func initSocket(){
-        
-        SocketIOManager.shared.connect()
-        SocketIOManager.shared.socket.on("connection"){ _,_ in
-            SocketIOManager.shared.socket.emit("nickName", self.nickName ?? "")
-        }
-        
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
             self.roomInfos = dataArray[0] as? NSArray

@@ -146,4 +146,7 @@ extension GameViewController : GameZoneViewControllerDelegate {
         winnerName = name
         gameDoneTime = time
     }
+    func passTimeInfo(time: String) {
+        //only for Single
+    }
 }

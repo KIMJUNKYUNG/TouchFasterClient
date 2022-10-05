@@ -18,6 +18,7 @@
 		0B47BFC228BDDA3C00C196D5 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 0B47BFC128BDDA3C00C196D5 /* SocketIO */; };
 		0B7297AC28ED14D60054B8FC /* HighScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7297AB28ED14D60054B8FC /* HighScoreCell.swift */; };
 		0B7297AE28ED14EA0054B8FC /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7297AD28ED14EA0054B8FC /* HighScoreViewController.swift */; };
+		0B7297B028ED44F50054B8FC /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7297AF28ED44F50054B8FC /* SingleViewController.swift */; };
 		0B963A7928AD0FC900BCD17E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7828AD0FC900BCD17E /* AppDelegate.swift */; };
 		0B963A7B28AD0FC900BCD17E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */; };
 		0B963A7D28AD0FC900BCD17E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B963A7C28AD0FC900BCD17E /* GameViewController.swift */; };
@@ -41,6 +42,7 @@
 		0B1A166128E342720024639B /* GameProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameProfile.xib; sourceTree = "<group>"; };
 		0B7297AB28ED14D60054B8FC /* HighScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreCell.swift; sourceTree = "<group>"; };
 		0B7297AD28ED14EA0054B8FC /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		0B7297AF28ED44F50054B8FC /* SingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
 		0B963A7528AD0FC900BCD17E /* TouchFaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchFaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B963A7828AD0FC900BCD17E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B963A7A28AD0FC900BCD17E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		0B1A165628E133D20024639B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				0B7297AF28ED44F50054B8FC /* SingleViewController.swift */,
 				0B963A7C28AD0FC900BCD17E /* GameViewController.swift */,
 				0B1A165928E296730024639B /* GameZoneViewController.swift */,
 				0B1A165D28E2E7A50024639B /* GameProfile.swift */,
@@ -244,6 +247,7 @@
 				0BC0393D28CF481B00AC3512 /* ViewController.swift in Sources */,
 				0BC0393B28CF319E00AC3512 /* TimerLabel.swift in Sources */,
 				0B1A165B28E296730024639B /* GameZoneViewController.swift in Sources */,
+				0B7297B028ED44F50054B8FC /* SingleViewController.swift in Sources */,
 				0B963A7D28AD0FC900BCD17E /* GameViewController.swift in Sources */,
 				0BC0394128CF535500AC3512 /* RoomCell.swift in Sources */,
 				0B1A164528D817660024639B /* SocketIOManager.swift in Sources */,

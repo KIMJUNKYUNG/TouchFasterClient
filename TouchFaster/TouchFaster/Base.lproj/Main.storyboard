@@ -27,7 +27,7 @@
                                     <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="readyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wUo-1J-TYy"/>
+                                    <action selector="readyButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NBK-HQ-OlD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrq-nZ-zos">
@@ -117,18 +117,99 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnQuit" destination="xrq-nZ-zos" id="CD3-mT-dYj"/>
-                        <outlet property="btnReady" destination="jq6-gv-GH6" id="9LE-p3-vZI"/>
-                        <outlet property="btnStart" destination="OcI-us-imE" id="RiS-OO-af7"/>
-                        <outlet property="gameDoneTimeLabel" destination="JWu-dK-ABR" id="skt-g9-cCp"/>
+                        <outlet property="btnQuit" destination="xrq-nZ-zos" id="sDi-VF-iri"/>
+                        <outlet property="btnReady" destination="jq6-gv-GH6" id="6Zy-9R-oIY"/>
+                        <outlet property="btnStart" destination="OcI-us-imE" id="0JU-dg-9GU"/>
+                        <outlet property="gameDoneTimeLabel" destination="JWu-dK-ABR" id="MVp-xf-nNA"/>
                         <outlet property="player1" destination="dgX-Ip-R0h" id="9fu-YB-WpO"/>
                         <outlet property="player2" destination="ymN-uZ-4W7" id="AyN-WT-vq0"/>
-                        <outlet property="winnerNameLabel" destination="RL0-DA-HdA" id="Rc7-pU-Tue"/>
+                        <outlet property="winnerNameLabel" destination="RL0-DA-HdA" id="mns-ry-tZj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004.6153846153845" y="386.01895734597156"/>
+            <point key="canvasLocation" x="2005" y="389"/>
+        </scene>
+        <!--Single View Controller-->
+        <scene sceneID="TQb-cm-oa7">
+            <objects>
+                <viewController storyboardIdentifier="SingleViewController" modalPresentationStyle="fullScreen" id="hNF-gc-F27" customClass="SingleViewController" customModule="TouchFaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kqc-Rg-hXE">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbk-oF-rVK">
+                                <rect key="frame" x="270" y="714.66666666666663" width="100" height="47.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Z5K-iJ-M3o"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="QUIT">
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="21"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="quitBtnTouched:" destination="hNF-gc-F27" eventType="touchUpInside" id="mbG-XY-7ze"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPu-a1-IAi">
+                                <rect key="frame" x="95" y="374.66666666666669" width="200" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Dba-gR-VN3"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="START">
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="singleBtnTouched:" destination="hNF-gc-F27" eventType="touchUpInside" id="1IT-Jr-6QI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufv-iN-YvZ">
+                                <rect key="frame" x="95" y="456.66666666666669" width="200" height="57.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="OAF-9T-yut"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="HIGH SCORE">
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray6Color"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="highScoreBtnTouched:" destination="hNF-gc-F27" eventType="touchUpInside" id="6og-EJ-sPr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record : 00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-CX-Ge7">
+                                <rect key="frame" x="59" y="291.66666666666669" width="272.33333333333331" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QJ3-DW-tqH"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ufv-iN-YvZ" firstAttribute="centerY" secondItem="Kqc-Rg-hXE" secondAttribute="centerY" multiplier="1.15" id="16E-kv-v8g"/>
+                            <constraint firstItem="QJ3-DW-tqH" firstAttribute="trailing" secondItem="zbk-oF-rVK" secondAttribute="trailing" constant="20" id="3j1-rs-dbX"/>
+                            <constraint firstItem="zbk-oF-rVK" firstAttribute="centerY" secondItem="Kqc-Rg-hXE" secondAttribute="centerY" multiplier="1.75" id="8ZT-2d-Sxl"/>
+                            <constraint firstItem="ufv-iN-YvZ" firstAttribute="top" secondItem="JPu-a1-IAi" secondAttribute="bottom" constant="20" id="BYp-dq-OD9"/>
+                            <constraint firstItem="ufv-iN-YvZ" firstAttribute="centerX" secondItem="Kqc-Rg-hXE" secondAttribute="centerX" id="Eib-EQ-Ib4"/>
+                            <constraint firstItem="JPu-a1-IAi" firstAttribute="centerX" secondItem="Kqc-Rg-hXE" secondAttribute="centerX" id="OQz-Kr-9DK"/>
+                            <constraint firstItem="6eF-CX-Ge7" firstAttribute="centerX" secondItem="Kqc-Rg-hXE" secondAttribute="centerX" id="RBa-pm-jIj"/>
+                            <constraint firstItem="JPu-a1-IAi" firstAttribute="top" secondItem="6eF-CX-Ge7" secondAttribute="bottom" constant="35" id="RwJ-1Y-IKb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnHighScore" destination="ufv-iN-YvZ" id="R3w-pf-jd5"/>
+                        <outlet property="btnQuit" destination="zbk-oF-rVK" id="zIa-7f-do5"/>
+                        <outlet property="btnStart" destination="JPu-a1-IAi" id="1Vk-NC-7Zb"/>
+                        <outlet property="gameDoneTimeLabel" destination="6eF-CX-Ge7" id="IPP-4X-ZI6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fyu-XU-0aL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2734" y="389"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5Y5-5w-H4o">
@@ -433,7 +514,7 @@
         <!--High Score View Controller-->
         <scene sceneID="Ofk-Yk-AEV">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="8GF-cU-Qd1" customClass="HighScoreViewController" customModule="TouchFaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HighScoreViewController" modalPresentationStyle="fullScreen" id="8GF-cU-Qd1" customClass="HighScoreViewController" customModule="TouchFaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mLV-u0-FF9">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

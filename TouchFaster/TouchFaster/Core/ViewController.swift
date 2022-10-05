@@ -40,6 +40,12 @@ class ViewController : UIViewController, UITextFieldDelegate{
             let nickName = textField.text
           else { return }
             self.nickName = nickName
+            
+            SocketIOManager.shared.connect()
+            SocketIOManager.shared.socket.on("connection"){ _,_ in
+                SocketIOManager.shared.socket.emit("nickName", self.nickName)
+            }
+            
             self.btnSingle.isEnabled = true
             self.btnMulti.isEnabled = true
         }
@@ -94,7 +100,10 @@ class ViewController : UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func singleButtonTouched(_ sender: Any) {
+        guard let singleVC = self.storyboard?.instantiateViewController(withIdentifier: "SingleViewController") as? SingleViewController
+        else { return }
         
+        self.navigationController?.pushViewController(singleVC, animated: true)
     }
     @IBAction func multiButtonTouched(_ sender: UIButton) {
         if let roomsVC = storyboard?.instantiateViewController(withIdentifier: "Rooms") as? RoomViewController {

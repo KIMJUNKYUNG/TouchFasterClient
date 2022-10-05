@@ -9,6 +9,7 @@ import UIKit
 
 protocol GameZoneViewControllerDelegate : AnyObject {
     func passWinnerInfo(name : String, time : String)
+    func passTimeInfo(time : String)
 }
 
 class GameZoneViewController: UIViewController {
@@ -46,17 +47,15 @@ class GameZoneViewController: UIViewController {
     }
     
     func socketOn(){
-        SocketIOManager.shared.socket.on("gameDone"){ dataArray, ack in
+        SocketIOManager.shared.socket.on("multiGameDone"){ dataArray, ack in
             let winnerName = dataArray[0] as! String
             let gameDoneTime = dataArray[1] as! String
             
             self.timerLabel.pauseTimer(self)
             self.timerLabel.text = gameDoneTime
             
-            if !self.isSingle{
-                self.delegate?.passWinnerInfo(name: winnerName, time: gameDoneTime)
-                self.dismiss(animated: true)
-            }
+            self.delegate?.passWinnerInfo(name: winnerName, time: gameDoneTime)
+            self.dismiss(animated: true)
         }
     }
     
@@ -125,7 +124,11 @@ class GameZoneViewController: UIViewController {
         sender.removeFromSuperview()
         if circleButtons.isEmpty{
             self.timerLabel.pauseTimer(self)
-            SocketIOManager.shared.socket.emit("gameDone", self.timerLabel.currentTime())
+            SocketIOManager.shared.socket.emit("gameDone", self.timerLabel.currentTime(), isSingle)
+            if isSingle{
+                self.delegate?.passTimeInfo(time: self.timerLabel.currentTime())
+                self.dismiss(animated: true)
+            }
             return
         }
         
