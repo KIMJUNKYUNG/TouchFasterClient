@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SocketIO
 
 class ViewController : UIViewController, UITextFieldDelegate{
     
@@ -26,8 +27,36 @@ class ViewController : UIViewController, UITextFieldDelegate{
         SocketIOManager.shared.socket.on("connection"){ _,_ in
             self.alertInsertNickName()
         }
-
         initHomePageView()
+        runStatusTimer()
+    }
+    func runStatusTimer(){
+        Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(checkStatus), userInfo: nil, repeats: false)
+    }
+    @objc func checkStatus(){
+        let socketConnectionStatus = SocketIOManager.shared.socket.status
+
+        switch socketConnectionStatus {
+        case SocketIOStatus.connected:
+            print("socket connected")
+        case SocketIOStatus.connecting,
+            SocketIOStatus.disconnected,
+            SocketIOStatus.notConnected:
+            let alert = UIAlertController(
+              title: "Server is Closed",
+              message: "",
+              preferredStyle: .alert
+            )
+
+            let retry = UIAlertAction(title: "Retry", style: .default) { _ in
+                SocketIOManager.shared.connect()
+                self.runStatusTimer()
+            }
+            alert.addAction(retry)
+            alert.preferredAction = retry
+            
+            present(alert, animated: true, completion: nil)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
