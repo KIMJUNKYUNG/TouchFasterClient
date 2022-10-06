@@ -81,7 +81,7 @@ class GameZoneViewController: UIViewController {
             let circleButton = UIButton()
             circleButtons.append(circleButton)
             
-            let randomY = Int.random(in: 0...(hasGameZoneHeight - circleHeight))
+            let randomY = Int.random(in: circleHeight...(hasGameZoneHeight - circleHeight))
             let randomX = Int.random(in: 0...(hasGameZoneWidth - circleWidth))
             
             circleButton.frame = CGRect(x: randomX, y: randomY, width: circleWidth, height: circleHeight)
