@@ -28,6 +28,11 @@ class RoomViewController : UIViewController{
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        socketOn()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        socketOff()
     }
 }
 
@@ -45,12 +50,17 @@ extension RoomViewController{   // Socket
         SocketIOManager.shared.socket.emit("roomList")
     }
     func initSocket(){
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(emitRoomList), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(emitRoomList), userInfo: nil, repeats: true)
+    }
+    func socketOn(){
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
             self.roomInfos = dataArray[0] as? NSArray
             self.roomTableView.reloadData()
         }
+    }
+    func socketOff(){
+        SocketIOManager.shared.socket.off("roomList")
     }
 }
 
@@ -154,6 +164,8 @@ extension RoomViewController : UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         SocketIOManager.shared.socket.emit("joinRoom", indexPath.row)
         if let roomInfo = self.roomInfos?.getNSDict(indexPath.row){
             guard

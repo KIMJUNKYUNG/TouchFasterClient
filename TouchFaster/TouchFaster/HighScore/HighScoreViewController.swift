@@ -25,8 +25,11 @@ class HighScoreViewController: UIViewController {
                 self.highScoreInfos = hasData
                 self.highScoreTableView.reloadData()
             }
-
         }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        SocketIOManager.shared.socket.off("highScore")
     }
 }
 

@@ -35,11 +35,18 @@ class GameZoneViewController: UIViewController {
         
         self.timerLabel.text = ""
         self.view.backgroundColor = .systemGray6
-        
-        socketOn()
     }
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.gameStart()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        socketOn()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        socketOff()
     }
     override func viewDidLayoutSubviews() {
         gameZoneHeight = Int(self.view.bounds.height)
@@ -57,6 +64,9 @@ class GameZoneViewController: UIViewController {
             self.delegate?.passWinnerInfo(name: winnerName, time: gameDoneTime)
             self.dismiss(animated: true)
         }
+    }
+    func socketOff(){
+        SocketIOManager.shared.socket.off("multiGameDone")
     }
     
     func gameStart(){

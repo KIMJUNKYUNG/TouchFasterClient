@@ -39,15 +39,12 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initGameRoomView()
-        
-//        print("--viewDidLoad--")
-        socketOn()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        print("--viewWillAppear--")
+        socketOn()
         updateReadyCondition(p1Ready: false, p2Ready: false)
         if let winnerName = winnerName,
            let gameDoneTime = gameDoneTime{
@@ -59,6 +56,11 @@ class GameViewController: UIViewController {
             self.winnerNameLabel.isHidden = true
             self.gameDoneTimeLabel.isHidden = true
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        socketOff()
     }
     
     func initGameRoomView(){
@@ -108,6 +110,11 @@ class GameViewController: UIViewController {
             self.present(gameZoneVC, animated: true)
         }
     }
+    func socketOff(){
+        SocketIOManager.shared.socket.off("roomCondition")
+        SocketIOManager.shared.socket.off("gameStart")
+    }
+    
     func updateReadyCondition(p1Ready : Bool, p2Ready : Bool){
         if p1Ready{
             self.player1.ready.textColor = .orange

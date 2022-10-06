@@ -17,14 +17,25 @@ class ViewController : UIViewController, UITextFieldDelegate{
     @IBOutlet weak var btnMulti: UIButton!
     @IBOutlet weak var btnExit: UIButton!
     
-    var nickName : String!
+    var nickName : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SocketIOManager.shared.connect()
+        SocketIOManager.shared.socket.on("connection"){ _,_ in
+            self.alertInsertNickName()
+        }
+
         initHomePageView()
-        alertInsertNickName()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     let limitLength = 5
     
     func alertInsertNickName(){
@@ -40,12 +51,7 @@ class ViewController : UIViewController, UITextFieldDelegate{
             let nickName = textField.text
           else { return }
             self.nickName = nickName
-            
-            SocketIOManager.shared.connect()
-            SocketIOManager.shared.socket.on("connection"){ _,_ in
-                SocketIOManager.shared.socket.emit("nickName", self.nickName)
-            }
-            
+            SocketIOManager.shared.socket.emit("nickName", self.nickName ?? "")
             self.btnSingle.isEnabled = true
             self.btnMulti.isEnabled = true
         }

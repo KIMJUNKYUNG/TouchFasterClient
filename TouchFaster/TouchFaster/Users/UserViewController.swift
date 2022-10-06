@@ -17,7 +17,9 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         
         self.initTableView()
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         SocketIOManager.shared.socket.emit("userList")
         SocketIOManager.shared.socket.on("userList") { dataArray, ack in
             
@@ -26,6 +28,10 @@ class UserViewController: UIViewController {
                 self.userTableView.reloadData()
             }
         }
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        SocketIOManager.shared.socket.off("userList")
     }
 }
 
