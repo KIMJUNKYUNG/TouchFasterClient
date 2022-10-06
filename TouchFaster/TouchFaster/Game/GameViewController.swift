@@ -109,10 +109,25 @@ class GameViewController: UIViewController {
             gameZoneVC.isSingle = false
             self.present(gameZoneVC, animated: true)
         }
+        SocketIOManager.shared.socket.on("roomClosed") { _,_ in
+            let alert = UIAlertController(
+              title: "Room Closed",
+              message: "Room Owner Quit the Room",
+              preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                self.dismiss(animated: true)
+            }
+            
+            alert.addAction(okAction)
+
+            self.present(alert, animated: true, completion: nil)
+            
+        }
     }
     func socketOff(){
         SocketIOManager.shared.socket.off("roomCondition")
         SocketIOManager.shared.socket.off("gameStart")
+        SocketIOManager.shared.socket.off("roomClosed")
     }
     
     func updateReadyCondition(p1Ready : Bool, p2Ready : Bool){
