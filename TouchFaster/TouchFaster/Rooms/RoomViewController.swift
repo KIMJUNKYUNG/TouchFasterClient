@@ -26,6 +26,9 @@ class RoomViewController : UIViewController{
         initBarButtons()
         initSocket()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 
 extension RoomViewController{
@@ -38,7 +41,11 @@ extension RoomViewController{
 }
 
 extension RoomViewController{   // Socket
+    @objc func emitRoomList(){
+        SocketIOManager.shared.socket.emit("roomList")
+    }
     func initSocket(){
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(emitRoomList), userInfo: nil, repeats: true)
         SocketIOManager.shared.socket.on("roomList") { dataArray, ack in
             
             self.roomInfos = dataArray[0] as? NSArray
