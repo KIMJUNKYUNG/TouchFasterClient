@@ -2,7 +2,7 @@
 
 <h2> How to play </h2>
 
-![Simulator Screen Shot - iPhone 14 - 2022-10-08 at 11 32 28](https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png=100x20)
+![Simulator Screen Shot - iPhone 14 - 2022-10-08 at 11 32 28](https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png =100x20)
 
 **TouchFasterClient is a simple game for ios**
 
