@@ -1,7 +1,7 @@
 # TouchFasterClient
 
 <h2> How to play </h2>
-<img src="https://user-images.githubusercontent.com/link-to-your-image.png](https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
+<img src="https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
 
 **TouchFasterClient is a simple game for ios**
 
