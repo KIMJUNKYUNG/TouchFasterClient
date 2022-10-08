@@ -35,7 +35,7 @@ When you play Single Game, You can play the game by yourself and can check for h
 
 <p>
   <img src="https://user-images.githubusercontent.com/52786004/194689403-7fc6134e-48a6-4f54-af44-60ced6fe61b9.png" width="200" />
-  <em>When another user makes a room you can choose the room and join</em>
+  <em>When another user makes a room you can choose and join the room</em>
 </p>
 
 2. The Left and right top of the profiles shows Users' nickname and ready condition. the left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
