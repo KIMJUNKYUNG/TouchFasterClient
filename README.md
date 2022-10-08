@@ -47,7 +47,7 @@ When you play Single Game, You can play the game by yourself and can check for h
 4. After started, 3secs of count down are shown and then the game is started
 <img src="https://user-images.githubusercontent.com/52786004/194689930-0d4967d7-64ad-4054-af6a-c6b5c521b973.png" width="200" />
 
-5. when someone finished earlier, the game ended and shows the winner's nickname and time record. this record also saved to DB Server
+5. when someone finished earlier, the game ended and then the winner's nickname and time record is shown. this record also saved to DB Server
 <img src="https://user-images.githubusercontent.com/52786004/194689488-28eb3e6e-7cb9-47a8-9f37-d5fac9160fb2.png" width="200" />
 
 <h3>"HighScore" Button : You can check HighScores in DB</h3>
