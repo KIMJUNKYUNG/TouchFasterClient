@@ -21,6 +21,7 @@ After the game is started, It makes 10 circles that have numbers on the screen y
 <p float="left">
   <img src="https://user-images.githubusercontent.com/52786004/194689337-4be0a6f6-0908-43b8-a02f-bae5239a8b06.png" width="200" /> 
   <img src="https://user-images.githubusercontent.com/52786004/194689347-f4081787-e4b9-4b00-93f8-539ee59ed1d5.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
 </p>
 
 When you play Single Game, You can play the game by yourself and can check for high scores
