@@ -32,7 +32,6 @@ When you play Single Game, You can play the game by yourself and can check for h
   <img src="https://user-images.githubusercontent.com/52786004/194689392-ee0c0146-7f88-40ec-81ef-e2e672134ef8.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689403-7fc6134e-48a6-4f54-af44-60ced6fe61b9.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689497-5c9f31f1-dae3-4025-9619-564e6435f00f.png" width="200" />
-  <img src="https://user-images.githubusercontent.com/52786004/194689447-cd83e53c-eac5-40a5-bfd4-96abd79a5457.png" width="200" />
 </p>
 
 1. "+" Button : You can make the room for multi-play Game, When another user makes a room you can choose and join the room
@@ -41,6 +40,7 @@ When you play Single Game, You can play the game by yourself and can check for h
 
 <h2> Room </h2>
 <p>
+  <img src="https://user-images.githubusercontent.com/52786004/194689447-cd83e53c-eac5-40a5-bfd4-96abd79a5457.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689459-225223bc-c2ad-48f0-9ce5-6078f7ae7e3a.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689930-0d4967d7-64ad-4054-af6a-c6b5c521b973.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689488-28eb3e6e-7cb9-47a8-9f37-d5fac9160fb2.png" width="200" />
