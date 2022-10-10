@@ -27,13 +27,12 @@ After the game is started, It makes 10 circles that have numbers on the screen y
 When you play Single Game, You can play the game by yourself and can check for high scores
 
 <h2> Multi </h2>
-
-<img src="https://user-images.githubusercontent.com/52786004/194689362-1a99ffa6-1dc6-44c7-9497-96fe7a57f43e.png" width="200" />
-
 <p>
+  <img src="https://user-images.githubusercontent.com/52786004/194689362-1a99ffa6-1dc6-44c7-9497-96fe7a57f43e.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689392-ee0c0146-7f88-40ec-81ef-e2e672134ef8.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689403-7fc6134e-48a6-4f54-af44-60ced6fe61b9.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689497-5c9f31f1-dae3-4025-9619-564e6435f00f.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/52786004/194689447-cd83e53c-eac5-40a5-bfd4-96abd79a5457.png" width="200" />
 </p>
 
 1. "+" Button : You can make the room for multi-play Game, When another user makes a room you can choose and join the room
@@ -41,7 +40,6 @@ When you play Single Game, You can play the game by yourself and can check for h
 3. HighScores Button : You can check HighScores in DB
 4. Users Button : You can check the User list who logOn now
 
-<img src="https://user-images.githubusercontent.com/52786004/194689447-cd83e53c-eac5-40a5-bfd4-96abd79a5457.png" width="200" />
 
 3. After all of the players are ready, "**START"** button is shown in Room Owner's view
 <img src="https://user-images.githubusercontent.com/52786004/194689459-225223bc-c2ad-48f0-9ce5-6078f7ae7e3a.png" width="200" />
