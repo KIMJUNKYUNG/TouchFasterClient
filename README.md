@@ -9,13 +9,12 @@ After the game is started, It makes 10 circles that have numbers on the screen y
 
 <h2> Nickname System </h2>
 
-<img src="https://user-images.githubusercontent.com/52786004/194689266-c8cb35e2-1df7-4e9e-9229-40a95858acf5.png" width="200" />
-
-When you turn on the app first, you need to register your nickname for the high score System. When you have cleared the game, your score is saved with it. because of the high score system, TouchFaster can be played when the server is open
-
-<img src="https://user-images.githubusercontent.com/52786004/194689278-d1bcc6c3-2d2a-4a29-8b02-94793c068c82.png" width="200" />
-
-HighScores are saved in MongoDB Server
+<p>
+  <img src="https://user-images.githubusercontent.com/52786004/194689266-c8cb35e2-1df7-4e9e-9229-40a95858acf5.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/52786004/194689278-d1bcc6c3-2d2a-4a29-8b02-94793c068c82.png" width="200" />
+</p>
+1. When you turn on the app first, you need to register your nickname for the high score System. When you have cleared the game, your score is saved with it. because of the high score system, TouchFaster can be played when the server is open
+2. HighScores are saved in MongoDB Server with typed nickName
 
 <h2> Single </h2>
 <p float="left">
