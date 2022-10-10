@@ -29,17 +29,17 @@ When you play Single Game, You can play the game by yourself and can check for h
 
 <img src="https://user-images.githubusercontent.com/52786004/194689362-1a99ffa6-1dc6-44c7-9497-96fe7a57f43e.png" width="200" />
 
-<h3>"+" Button </h3>
-
-1. You can make the room for multi-play Game
-<img src="https://user-images.githubusercontent.com/52786004/194689392-ee0c0146-7f88-40ec-81ef-e2e672134ef8.png" width="200" />
-
 <p>
+  <img src="https://user-images.githubusercontent.com/52786004/194689392-ee0c0146-7f88-40ec-81ef-e2e672134ef8.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689403-7fc6134e-48a6-4f54-af44-60ced6fe61b9.png" width="200" />
-  <em>When another user makes a room you can choose and join the room</em>
+  <img src="https://user-images.githubusercontent.com/52786004/194689497-5c9f31f1-dae3-4025-9619-564e6435f00f.png" width="200" />
 </p>
 
+1. "+" Button : You can make the room for multi-play Game, When another user makes a room you can choose and join the room
 2. The Left and right top of the profiles shows Users' nickname and ready condition. the left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
+3. HighScores Button : You can check HighScores in DB
+4. Users Button : You can check the User list who logOn now
+
 <img src="https://user-images.githubusercontent.com/52786004/194689447-cd83e53c-eac5-40a5-bfd4-96abd79a5457.png" width="200" />
 
 3. After all of the players are ready, "**START"** button is shown in Room Owner's view
@@ -51,10 +51,6 @@ When you play Single Game, You can play the game by yourself and can check for h
 5. when someone finished earlier, the game ended and then the winner's nickname and time record is shown. this record also saved to DB Server
 <img src="https://user-images.githubusercontent.com/52786004/194689488-28eb3e6e-7cb9-47a8-9f37-d5fac9160fb2.png" width="200" />
 
-<h3>"HighScore" Button : You can check HighScores in DB</h3>
-
-<h3>"Users" Button : You can check the User list who logOn now</h3>
-<img src="https://user-images.githubusercontent.com/52786004/194689497-5c9f31f1-dae3-4025-9619-564e6435f00f.png" width="200" />
 
 <h2>Component</h2>
 
