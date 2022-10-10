@@ -36,20 +36,22 @@ When you play Single Game, You can play the game by yourself and can check for h
 </p>
 
 1. "+" Button : You can make the room for multi-play Game, When another user makes a room you can choose and join the room
-2. The Left and right top of the profiles shows Users' nickname and ready condition. the left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
-3. HighScores Button : You can check HighScores in DB
-4. Users Button : You can check the User list who logOn now
+2. HighScores Button : You can check HighScores in DB
+3. Users Button : You can check the User list who logOn now
 
-
-3. After all of the players are ready, "**START"** button is shown in Room Owner's view
-<img src="https://user-images.githubusercontent.com/52786004/194689459-225223bc-c2ad-48f0-9ce5-6078f7ae7e3a.png" width="200" />
-
+<h2> Room </h2>
+<p>
+  <img src="https://user-images.githubusercontent.com/52786004/194689459-225223bc-c2ad-48f0-9ce5-6078f7ae7e3a.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/52786004/194689930-0d4967d7-64ad-4054-af6a-c6b5c521b973.png" width="200" />
+  <img src="https://user-images.githubusercontent.com/52786004/194689488-28eb3e6e-7cb9-47a8-9f37-d5fac9160fb2.png" width="200" />
+</p>
+ 
+1. The Left and right top of the profiles shows Users' nickname and ready condition. 
+2. The left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
+3. After all of the players are ready, "**START"** button is shown on the Room Owner's screen
 4. After started, 3secs of count down are shown and then the game is started
-<img src="https://user-images.githubusercontent.com/52786004/194689930-0d4967d7-64ad-4054-af6a-c6b5c521b973.png" width="200" />
-
-5. when someone finished earlier, the game ended and then the winner's nickname and time record is shown. this record also saved to DB Server
-<img src="https://user-images.githubusercontent.com/52786004/194689488-28eb3e6e-7cb9-47a8-9f37-d5fac9160fb2.png" width="200" />
-
+5. When someone finished earlier, the game ended
+6. the winner's nickname and time record is shown. this record is saved to DB Server
 
 <h2>Component</h2>
 
