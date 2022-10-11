@@ -61,7 +61,7 @@ Server - NodeJS(socket.io)
 
 DB - MongoDB
 
-**Explanation**
+<h2>Explanation</h2>
 1. Client and Server are communicated with Socket.io
 2. Room informations (for current room list) are saved to NodeJS Server
 3. Room Conditions (for inner Room's condition, ex) Ready, NickName... ) are saved to NodeJS Server
