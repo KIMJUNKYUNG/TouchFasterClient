@@ -61,8 +61,9 @@ Server - NodeJS(socket.io)
 
 DB - MongoDB
 
+**Explanation**
 1. Client and Server are communicated with Socket.io
-2. Room information for showing room list client can join it is saved to NodeJS
-3. Room Condition for showing the inner Room's condition like ready or nickName Information is saved to NodeJS
-4. HighScore is saved to MongoDB
+2. Room informations (for current room list) are saved to NodeJS Server
+3. Room Conditions (for inner Room's condition, ex) Ready, NickName... ) are saved to NodeJS Server
+4. HighScores are saved to MongoDB
 
