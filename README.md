@@ -67,3 +67,4 @@ DB - MongoDB
 3. Room Conditions (for inner Room's condition, ex) Ready, NickName... ) are saved to NodeJS Server
 4. HighScores are saved to MongoDB
 
+
