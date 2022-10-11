@@ -55,11 +55,9 @@ When you play Single Game, You can play the game by yourself and can check for h
 
 <h2>Component</h2>
 
-Client - Swift(IOS)
-
-Server - NodeJS(socket.io) 
-
-DB - MongoDB
+1. Client - Swift(IOS)
+2. Server - NodeJS(socket.io) 
+3. DB - MongoDB
 
 <h2>Explanation</h2>
 
