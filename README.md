@@ -9,6 +9,7 @@
 2. Server - NodeJS(socket.io) : https://github.com/KIMJUNKYUNG/TouchFasterServer
 3. DB - MongoDB
 
+<h2> Nickname System </h2>
 <p>
   <img src="https://user-images.githubusercontent.com/52786004/194689266-c8cb35e2-1df7-4e9e-9229-40a95858acf5.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689278-d1bcc6c3-2d2a-4a29-8b02-94793c068c82.png" width="200" />
@@ -16,6 +17,13 @@
 
 1. When you turn on the app first, you need to register your nickname for the high score System. When you have cleared the game, your score is saved with it. because of the high score system, TouchFaster can be played when the server is open
 2. HighScores are saved in MongoDB Server with typed nickName
+ 
+1. The Left and right top of the profiles shows Users' nickname and ready condition. 
+2. The left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
+3. After all of the players are ready, "**START"** button is shown on the Room Owner's screen
+4. After started, 3secs of count down are shown and then the game is started
+5. When someone finished earlier, the game ended
+6. the winner's nickname and time record is shown. this record is saved to DB Server
 
 <h2> Single </h2>
 <p float="left">
@@ -51,14 +59,6 @@ When you play Single Game, You can play the game by yourself and can check for h
 
 After the game is started, It makes 10 circles that have numbers on the screen you can touch the circles in order, If you touch "10" then you are the winner of the game
 
-<h2> Nickname System </h2>
- 
-1. The Left and right top of the profiles shows Users' nickname and ready condition. 
-2. The left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
-3. After all of the players are ready, "**START"** button is shown on the Room Owner's screen
-4. After started, 3secs of count down are shown and then the game is started
-5. When someone finished earlier, the game ended
-6. the winner's nickname and time record is shown. this record is saved to DB Server
 
 <h2>Explanation</h2>
 
