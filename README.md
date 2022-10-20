@@ -1,5 +1,11 @@
 # TouchFasterClient
 
+<h2>Component</h2>
+
+1. Client - Swift(IOS)
+2. Server - NodeJS(socket.io) : https://github.com/KIMJUNKYUNG/TouchFasterServer
+3. DB - MongoDB
+
 <h2> How to play </h2>
 <img src="https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
 
@@ -52,12 +58,6 @@ When you play Single Game, You can play the game by yourself and can check for h
 4. After started, 3secs of count down are shown and then the game is started
 5. When someone finished earlier, the game ended
 6. the winner's nickname and time record is shown. this record is saved to DB Server
-
-<h2>Component</h2>
-
-1. Client - Swift(IOS)
-2. Server - NodeJS(socket.io) 
-3. DB - MongoDB
 
 <h2>Explanation</h2>
 
