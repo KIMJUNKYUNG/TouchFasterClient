@@ -9,13 +9,6 @@
 2. Server - NodeJS(socket.io) : https://github.com/KIMJUNKYUNG/TouchFasterServer
 3. DB - MongoDB
 
-<h2> How to play </h2>
-<img src="https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
-
-After the game is started, It makes 10 circles that have numbers on the screen you can touch the circles in order, If you touch "10" then you are the winner of the game
-
-<h2> Nickname System </h2>
-
 <p>
   <img src="https://user-images.githubusercontent.com/52786004/194689266-c8cb35e2-1df7-4e9e-9229-40a95858acf5.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689278-d1bcc6c3-2d2a-4a29-8b02-94793c068c82.png" width="200" />
@@ -52,6 +45,13 @@ When you play Single Game, You can play the game by yourself and can check for h
   <img src="https://user-images.githubusercontent.com/52786004/194689930-0d4967d7-64ad-4054-af6a-c6b5c521b973.png" width="200" />
   <img src="https://user-images.githubusercontent.com/52786004/194689488-28eb3e6e-7cb9-47a8-9f37-d5fac9160fb2.png" width="200" />
 </p>
+
+<h2> How to play </h2>
+<img src="https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
+
+After the game is started, It makes 10 circles that have numbers on the screen you can touch the circles in order, If you touch "10" then you are the winner of the game
+
+<h2> Nickname System </h2>
  
 1. The Left and right top of the profiles shows Users' nickname and ready condition. 
 2. The left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
