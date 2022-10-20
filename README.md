@@ -1,5 +1,7 @@
 # TouchFasterClient
 
+<h2> TouchFaster is a simple Mulit Playgame for ios</h2>
+
 <h2>Component</h2>
 
 1. Client - Swift(IOS)
@@ -8,8 +10,6 @@
 
 <h2> How to play </h2>
 <img src="https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
-
-**TouchFasterClient is a simple game for ios**
 
 After the game is started, It makes 10 circles that have numbers on the screen you can touch the circles in order, If you touch "10" then you are the winner of the game
 
