@@ -17,13 +17,6 @@
 
 1. When you turn on the app first, you need to register your nickname for the high score System. When you have cleared the game, your score is saved with it. because of the high score system, TouchFaster can be played when the server is open
 2. HighScores are saved in MongoDB Server with typed nickName
- 
-1. The Left and right top of the profiles shows Users' nickname and ready condition. 
-2. The left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
-3. After all of the players are ready, "**START"** button is shown on the Room Owner's screen
-4. After started, 3secs of count down are shown and then the game is started
-5. When someone finished earlier, the game ended
-6. the winner's nickname and time record is shown. this record is saved to DB Server
 
 <h2> Single </h2>
 <p float="left">
@@ -54,11 +47,17 @@ When you play Single Game, You can play the game by yourself and can check for h
   <img src="https://user-images.githubusercontent.com/52786004/194689488-28eb3e6e-7cb9-47a8-9f37-d5fac9160fb2.png" width="200" />
 </p>
 
+1. The Left and right top of the profiles shows Users' nickname and ready condition. 
+2. The left side is the room owner and the right side is the room client. If someone is ready for the game **READY Label** is changed to orange
+3. After all of the players are ready, "**START"** button is shown on the Room Owner's screen
+4. After started, 3secs of count down are shown and then the game is started
+5. When someone finished earlier, the game ended
+6. the winner's nickname and time record is shown. this record is saved to DB Server
+
 <h2> How to play </h2>
 <img src="https://user-images.githubusercontent.com/52786004/194686146-2fd1a0ff-91dd-4fbe-a97a-254e1fe649a0.png" width="200" />
 
 After the game is started, It makes 10 circles that have numbers on the screen you can touch the circles in order, If you touch "10" then you are the winner of the game
-
 
 <h2>Explanation</h2>
 
