@@ -1,6 +1,6 @@
 # TouchFasterClient
 
-** TouchFaster is a simple Mulit Playgame for ios**
+**TouchFaster is a simple Mulit Playgame for ios**
 
 <h2>Component</h2>
 
